@@ -1,0 +1,55 @@
+{
+    "routePrefix": "administration.companies",
+    "readSuffix": "getTableData",
+    "crtNo": true,
+    "buttons": ["excel", "create", "edit", "destroy"],
+    "columns": [{
+        "label": "Name",
+        "name": "name",
+        "data": "companies.name",
+        "meta": ["searchable", "sortable"]
+    }, {
+        "label": "Email",
+        "name": "email",
+        "data": "companies.email",
+        "meta": ["searchable", "sortable"]
+    }, {
+        "label": "Phone",
+        "name": "phone",
+        "data": "companies.phone",
+        "meta": ["searchable", "sortable"]
+    }, {
+        "label": "Fax",
+        "name": "fax",
+        "data": "companies.fax",
+        "meta": ["searchable", "sortable"]
+    }, {
+        "label": "Mandatary",
+        "name": "mandatary",
+        "data": "people.name",
+        "meta": ["searchable", "sortable"]
+    }, {
+        "label": "Appellative",
+        "name": "appellative",
+        "data": "companies.appellative",
+        "meta": [
+            "searchable",
+            "sortable"
+        ]
+    }, {
+        "label": "Bank",
+        "name": "bank",
+        "data": "companies.bank",
+        "meta": ["searchable", "sortable"]
+    }, {
+        "label": "Pays VAT",
+        "name": "pays_vat",
+        "data": "companies.pays_vat",
+        "meta": ["boolean", "sortable"]
+    }, {
+        "label": "Created at",
+        "name": "created_at",
+        "data": "companies.created_at",
+        "meta": ["date"]
+    }]
+}
