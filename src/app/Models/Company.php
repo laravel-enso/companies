@@ -27,7 +27,7 @@ class Company extends Model
 
     public function mandatary()
     {
-        return $this->hasOne(Company::class);
+        return $this->hasOne(self::class);
     }
 
     public function delete()

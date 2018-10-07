@@ -4,8 +4,8 @@ namespace LaravelEnso\Companies\app\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use LaravelEnso\Companies\app\Models\Company;
-use LaravelEnso\Companies\app\Forms\Builders\CompanyForm;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use LaravelEnso\Companies\app\Forms\Builders\CompanyForm;
 use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyRequest;
 
 class CompanyController extends Controller
