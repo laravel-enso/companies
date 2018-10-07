@@ -29,14 +29,6 @@
         "data": "people.name",
         "meta": ["searchable", "sortable"]
     }, {
-        "label": "Appellative",
-        "name": "appellative",
-        "data": "companies.appellative",
-        "meta": [
-            "searchable",
-            "sortable"
-        ]
-    }, {
         "label": "Bank",
         "name": "bank",
         "data": "companies.bank",
