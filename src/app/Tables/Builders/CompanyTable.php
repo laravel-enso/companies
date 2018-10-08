@@ -12,9 +12,7 @@ class CompanyTable extends Table
     public function query()
     {
         return Company::select(\DB::raw(
-                'companies.id as "dtRowId", companies.name, companies.email, companies.phone,
-                companies.fax, companies.bank, companies.pays_vat, people.name as mandatary,
-                companies.created_at'
+                'companies.*, companies.id as "dtRowId", people.name as mandatary'
             ))->leftJoin('people', 'companies.mandatary_id', '=', 'people.id');
     }
 }
