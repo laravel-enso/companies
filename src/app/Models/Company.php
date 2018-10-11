@@ -11,6 +11,7 @@ use LaravelEnso\ActivityLog\app\Traits\LogsActivity;
 use LaravelEnso\CommentsManager\app\Traits\Commentable;
 use LaravelEnso\AddressesManager\app\Traits\Addressable;
 use LaravelEnso\DocumentsManager\app\Traits\Documentable;
+use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class Company extends Model
 {
