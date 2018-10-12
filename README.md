@@ -8,7 +8,13 @@
 
 Company management dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
-### Features
+[![Screenshot](https://laravel-enso.github.io/companies/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/companies/screenshots/bulma_001.png)
+
+[![Screenshot](https://laravel-enso.github.io/companies/screenshots/bulma_002_thumb.png)](https://laravel-enso.github.io/companies/screenshots/bulma_002.png)
+
+<sup>click on the photo to view a large size screenshot</sup>
+
+## Features
 
 - provides a common functionality for managing companies within the Enso ecosystem
 - integrates with the [People](https://github.com/laravel-enso/People) package
