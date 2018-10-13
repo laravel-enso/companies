@@ -13,7 +13,7 @@ class CompanyForm
 
     public function __construct()
     {
-        $this->form = new Form(self::TemplatePath);
+        $this->form = new Form($this->templatePath());
     }
 
     public function create()
@@ -26,5 +26,15 @@ class CompanyForm
         return $this->form
             ->append('companyId', $company->id)
             ->edit($company);
+    }
+
+    private function templatePath()
+    {
+        $file = config('enso.companies.formTemplate');
+        $templatePath = base_path($file);
+
+        return $file && \File::exists($templatePath)
+            ? $templatePath
+            : self::TemplatePath;
     }
 }

@@ -13,7 +13,7 @@ class CreateCompaniesTable extends Migration
             $table->integer('mandatary_id')->unsigned()->index()->nullable();
             $table->foreign('mandatary_id')->references('id')->on('people');
 
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('fax')->nullable();
