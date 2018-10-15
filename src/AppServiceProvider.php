@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/config' => config_path('enso'),
-        ], 'companies-config');
+        ], 'enso-config');
 
         $this->publishes([
             __DIR__.'/resources/js' => resource_path('js'),
