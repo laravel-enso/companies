@@ -3,6 +3,7 @@
 namespace LaravelEnso\Companies;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelEnso\Companies\app\Contracts\ValidatesCompanyRequest;
 use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyRequest;
 
 class RequestValidationProvider extends ServiceProvider
@@ -16,15 +17,15 @@ class RequestValidationProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind(ValidateCompanyRequest::class, function () {
-            return config('enso.companies.requestValidator')
-                ? $this->app->make(config('enso.companies.requestValidator'))
-                : new ValidateCompanyRequest();
-        });
+        $this->app->bind(ValidatesCompanyRequest::class,
+            config('enso.companies.requestValidator')
+                ? config('enso.companies.requestValidator')
+                : ValidateCompanyRequest::class
+        );
     }
 
     public function provides()
     {
-        return [ValidateCompanyRequest::class];
+        return [ValidatesCompanyRequest::class];
     }
 }
