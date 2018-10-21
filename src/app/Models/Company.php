@@ -24,7 +24,7 @@ class Company extends Model
 
     protected $loggableLabel = 'name';
 
-    protected $loggable = ['name']; // customize
+    protected $loggable = ['name', 'email', 'phone'];
 
     public function mandatary()
     {

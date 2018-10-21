@@ -35,7 +35,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelEnso\\Companies\\AppServiceProvider"
+                "LaravelEnso\\Companies\\AppServiceProvider",
+                "LaravelEnso\\Companies\\RequestValidationProvider"
             ],
             "aliases": {}
         }
