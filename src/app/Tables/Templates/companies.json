@@ -41,6 +41,6 @@
         "label": "Created at",
         "name": "created_at",
         "data": "companies.created_at",
-        "meta": ["date"]
+        "meta": ["date", "sortable"]
     }]
 }
