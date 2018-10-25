@@ -5,7 +5,6 @@ namespace LaravelEnso\Companies\app\Forms\Builders;
 use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Models\Contact;
 use LaravelEnso\FormBuilder\app\Classes\Form;
-use LaravelEnso\People\app\Models\Person;
 
 class ContactForm
 {

@@ -2,16 +2,15 @@
 
 namespace LaravelEnso\Companies\app\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
-use LaravelEnso\Companies\app\Contracts\ValidatesContactRequest;
-use LaravelEnso\Companies\app\Forms\Builders\ContactForm;
 use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Models\Contact;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use LaravelEnso\Companies\app\Forms\Builders\ContactForm;
+use LaravelEnso\Companies\app\Contracts\ValidatesContactRequest;
 
 class ContactController extends Controller
 {
-
     use AuthorizesRequests;
 
     public function index(Company $company)
@@ -32,9 +31,9 @@ class ContactController extends Controller
         $contact = Contact::create($request->validated());
 
         return [
-            'message'  => __('The company was successfully created'),
+            'message' => __('The company was successfully created'),
             'redirect' => null,
-            'id'       => $contact->id,
+            'id' => $contact->id,
         ];
     }
 

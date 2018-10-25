@@ -24,7 +24,6 @@ Route::namespace('LaravelEnso\Companies\app\Http\Controllers')
 
         Route::prefix('companies/{company}/contacts')->as('companies.contacts.')
             ->group(function () {
-
                 Route::get('options', 'ContactSelectController@options')
                     ->name('options');
 

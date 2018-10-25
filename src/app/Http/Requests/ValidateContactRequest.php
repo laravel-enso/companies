@@ -7,7 +7,6 @@ use LaravelEnso\Companies\app\Contracts\ValidatesContactRequest;
 
 class ValidateContactRequest extends FormRequest implements ValidatesContactRequest
 {
-
     public function authorize()
     {
         return true;
@@ -17,8 +16,8 @@ class ValidateContactRequest extends FormRequest implements ValidatesContactRequ
     {
         return [
             'company_id' => 'required|exists:companies,id',
-            'person_id'  => 'required|exists:people,id',
-            'position'   => 'string|nullable',
+            'person_id' => 'required|exists:people,id',
+            'position' => 'string|nullable',
         ];
     }
 }

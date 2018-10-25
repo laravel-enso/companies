@@ -10,7 +10,6 @@ use LaravelEnso\Companies\app\Http\Requests\ValidateContactRequest;
 
 class RequestValidationProvider extends ServiceProvider
 {
-
     protected $defer = true;
 
     public function boot()

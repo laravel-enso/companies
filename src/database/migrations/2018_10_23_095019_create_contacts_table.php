@@ -28,8 +28,6 @@ class CreateContactsTable extends Migration
 
             $table->integer('updated_by')->unsigned()->index()->nullable();
             $table->foreign('updated_by')->references('id')->on('users');
-
-
         });
     }
 
