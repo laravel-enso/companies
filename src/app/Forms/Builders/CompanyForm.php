@@ -23,9 +23,7 @@ class CompanyForm
 
     public function edit(Company $company)
     {
-        return $this->form
-            ->append('companyId', $company->id)
-            ->edit($company);
+        return $this->form->edit($company);
     }
 
     private function templatePath()

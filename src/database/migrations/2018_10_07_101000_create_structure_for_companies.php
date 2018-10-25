@@ -4,13 +4,9 @@ use LaravelEnso\StructureManager\app\Classes\StructureMigration;
 
 class CreateStructureForCompanies extends StructureMigration
 {
-    protected $permissionGroup = [
-        'name' => 'administration.companies', 'description' => 'Companies permissions group',
-    ];
-
     protected $permissions = [
         ['name' => 'administration.companies.initTable', 'description' => 'Init table for companies', 'type' => 0, 'is_default' => false],
-        ['name' => 'administration.companies.getTableData', 'description' => 'Get table data for companies', 'type' => 0, 'is_default' => false],
+        ['name' => 'administration.companies.tableData', 'description' => 'Get table data for companies', 'type' => 0, 'is_default' => false],
         ['name' => 'administration.companies.exportExcel', 'description' => 'Export excel for companies', 'type' => 0, 'is_default' => false],
         ['name' => 'administration.companies.options', 'description' => 'Get options for select', 'type' => 0, 'is_default' => false],
         ['name' => 'administration.companies.create', 'description' => 'Create company', 'type' => 1, 'is_default' => false],
@@ -22,7 +18,7 @@ class CreateStructureForCompanies extends StructureMigration
     ];
 
     protected $menu = [
-        'name' => 'Companies', 'icon' => 'building', 'link' => 'administration.companies.index', 'order_index' => 250, 'has_children' => false,
+        'name' => 'Companies', 'icon' => 'building', 'route' => 'administration.companies.index', 'order_index' => 250, 'has_children' => false,
     ];
 
     protected $parentMenu = 'Administration';

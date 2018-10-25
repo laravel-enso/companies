@@ -74,7 +74,10 @@
                 "type": "input",
                 "content": "checkbox"
             }
-        }, {
+        }]
+    }, {
+        "columns": 1,
+        "fields": [{
             "label": "Notes",
             "name": "obs",
             "value": null,

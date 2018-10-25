@@ -24,7 +24,7 @@ class CompanyController extends Controller
         return [
             'message' => __('The company was successfully created'),
             'redirect' => 'administration.companies.edit',
-            'id' => $company->id,
+            'param' => ['company' => $company->id],
         ];
     }
 
