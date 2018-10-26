@@ -10,7 +10,6 @@ use LaravelEnso\PermissionManager\app\Models\Permission;
 
 class CleanMorphableContacts extends Command
 {
-
     protected $signature = 'enso:companies:clean-morphable-contacts';
 
     protected $description = 'Cleans the structures created by the morphable contacts package';
@@ -38,7 +37,7 @@ class CleanMorphableContacts extends Command
 
     private function cleanPermissions()
     {
-        if(!$this->hasLegacyPermissions()) {
+        if (! $this->hasLegacyPermissions()) {
             $this->info('The permissions were already cleaned up');
 
             return $this;
@@ -55,7 +54,7 @@ class CleanMorphableContacts extends Command
 
     private function cleanMenuStructure()
     {
-        if (!$this->hasContactMenu()) {
+        if (! $this->hasContactMenu()) {
             $this->info('The menu structure was already updated');
 
             return $this;

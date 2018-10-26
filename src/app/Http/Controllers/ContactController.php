@@ -3,15 +3,14 @@
 namespace LaravelEnso\Companies\app\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\Companies\app\Contracts\ValidatesContactRequest;
-use LaravelEnso\Companies\app\Forms\Builders\ContactForm;
 use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Models\Contact;
+use LaravelEnso\Companies\app\Forms\Builders\ContactForm;
+use LaravelEnso\Companies\app\Contracts\ValidatesContactRequest;
 use LaravelEnso\Companies\app\Http\Resources\Company as Resource;
 
 class ContactController extends Controller
 {
-
     public function index(Company $company)
     {
         return Resource::collection($company
