@@ -3,11 +3,16 @@
 namespace LaravelEnso\Companies;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelEnso\Companies\app\Console\Commands\CleanMorphableContacts;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $this->commands([
+            CleanMorphableContacts::class,
+        ]);
+
         $this->loadDependencies()
             ->publishDependencies();
     }

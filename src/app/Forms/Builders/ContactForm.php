@@ -20,7 +20,6 @@ class ContactForm
     public function create(Company $company)
     {
         return $this->form
-            ->append('company_id', $company->id)
             ->actions('store')
             ->create();
     }

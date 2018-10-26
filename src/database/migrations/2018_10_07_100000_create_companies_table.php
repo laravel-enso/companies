@@ -1,12 +1,16 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCompaniesTable extends Migration
 {
     public function up()
     {
+        Artisan::call('enso:companies:clean-morphable-contacts');
+
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
 

@@ -14,7 +14,7 @@ class Contact extends Model
 
     protected $guarded = [];
 
-    protected $loggableLabel = 'name';
+    protected $loggableLabel = 'person.name';
 
     protected $loggable = ['position'];
 
@@ -26,15 +26,5 @@ class Contact extends Model
     public function person()
     {
         return $this->belongsTo(Person::class);
-    }
-
-    public function getNameAttribute()
-    {
-        return $this->person->name;
-    }
-
-    public function getCompanyNameAttribute()
-    {
-        return $this->company->name;
     }
 }

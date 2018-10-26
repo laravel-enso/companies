@@ -41,23 +41,22 @@
                  v-for="(contact, index) in filteredContacts"
                  :key="index">
                 <contact :contact="contact"
-                         @edit="edit(contact)"
-                         @delete="destroy(contact, index)"
-                         :index="index"
-                         :id="id"/>
+                     :id="id"
+                     :index="index"
+                     @edit="edit(contact)"
+                     @delete="destroy(contact, index)"/>
             </div>
-            <contact-form
-                    v-if="form"
-                    :form="form"
-                    @close="form = null"
-                    @destroy="get(); form=false"
-                    @submit="get();form=false"/>
+            <contact-form :form="form"
+                @close="form = null"
+                @destroy="get(); form=false"
+                @submit="get();form=false"
+                v-if="form"/>
         </div>
 
-        <modal :show="confirmPersonDelete"
+        <modal :show="!!deletedContact"
                :i18n="__"
-               :message="__('Also delete the associated person?')"
-               @close="confirmPersonDelete = false"
+               message="Also delete the associated person?"
+               @close="deletedContact = null"
                @commit="destroyPerson">
         </modal>
 
@@ -67,7 +66,7 @@
 
 <script>
 
-    import {mapState} from 'vuex';
+    import { mapState } from 'vuex';
     import Contact from './Contact.vue';
     import ContactForm from './ContactForm.vue';
     import Modal from '../vueforms/Modal.vue';
@@ -99,7 +98,6 @@
                 form: null,
                 internalQuery: '',
                 deletedContact: null,
-                confirmPersonDelete: false,
             };
         },
 
@@ -146,66 +144,74 @@
             get() {
                 this.loading = true;
 
-                axios.get(route('administration.companies.contacts.index', this.routeParams), {
-                    params: this.params,
-                }).then(({data}) => {
-                    this.contacts = data;
-                    this.loading = false;
-                    this.$emit('update');
-                }).catch(error => this.handleError(error));
+                axios.get(route(
+                    'administration.companies.contacts.index', {
+                        company: this.id,
+                    }))
+                    .then(({data}) => {
+                        this.contacts = data;
+                        this.loading = false;
+                        this.$emit('update');
+                    })
+                    .catch(error => this.handleError(error));
             },
             create() {
                 this.loading = true;
 
-                axios.get(route('administration.companies.contacts.create', this.routeParams))
+                axios.get(route(
+                        'administration.companies.contacts.create', {
+                        company: this.id,
+                    }))
                     .then(({data}) => {
-                        this.loading = false;
                         this.form = data.form;
-                        this.addFields();
+                        this.loading = false;
+                        this.field('company_id').value = this.id;
                         this.$emit('update');
-                    }).catch(error => this.handleError(error));
+                    })
+                    .catch(error => this.handleError(error));
             },
             edit(contact) {
                 this.loading = true;
 
-                axios.get(route('administration.companies.contacts.edit', {"contact": contact.id, ...this.routeParams}))
+                axios.get(route(
+                    'administration.companies.contacts.edit',
+                    { contact: contact.id }
+                    ))
                     .then(({data}) => {
-                        this.loading = false;
                         this.form = data.form;
-                        this.addFields();
-                    }).catch(error => this.handleError(error));
+                        this.loading = false;
+                    })
+                    .catch(error => this.handleError(error));
             },
             destroy(contact, index) {
                 this.loading = true;
 
-                axios.delete(route('administration.companies.contacts.destroy', {"contact": contact.id, ...this.routeParams}))
+                axios.delete(route(
+                    'administration.companies.contacts.destroy',
+                    {contact: contact.id}
+                    ))
                     .then(() => {
-                        let deleted = this.contacts.splice(index, 1);
+                        this.deletedContact = this.contacts.splice(index, 1).pop();
                         this.loading = false;
                         this.$emit('update');
-                        this.postDestroy(deleted.pop());
-                    }).catch(error => this.handleError(error));
-            },
-            addFields() {
-                this.field('company_id').value = this.id;
+                    })
+                    .catch(error => this.handleError(error));
             },
             field(field) {
                 return this.form.sections
                     .reduce((fields, section) => fields.concat(section.fields), [])
                     .find(item => item.name === field);
             },
-            postDestroy(contact) {
-                this.deletedContact = contact;
-                this.confirmPersonDelete = true;
-            },
             destroyPerson() {
                 this.loading = true;
 
-                axios.delete(route('administration.people.destroy', {"person": this.deletedContact.person_id, ...this.routeParams}))
+                axios.delete(route(
+                        'administration.people.destroy',
+                        { person: this.deletedContact.person_id }
+                    ))
                     .then(() => {
                         this.deletedContact = null;
                         this.loading = false;
-                        this.confirmPersonDelete = false;
                     })
                     .catch(error => this.handleError(error));
             },

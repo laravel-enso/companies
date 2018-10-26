@@ -3,22 +3,22 @@
 namespace LaravelEnso\Companies\app\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use LaravelEnso\Companies\app\Contracts\ValidatesContactRequest;
+use LaravelEnso\Companies\app\Forms\Builders\ContactForm;
 use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Models\Contact;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use LaravelEnso\Companies\app\Forms\Builders\ContactForm;
-use LaravelEnso\Companies\app\Contracts\ValidatesContactRequest;
+use LaravelEnso\Companies\app\Http\Resources\Company as Resource;
 
 class ContactController extends Controller
 {
-    use AuthorizesRequests;
 
     public function index(Company $company)
     {
-        return $company
+        return Resource::collection($company
             ->contacts()
             ->with('person')
-            ->get();
+            ->get()
+        );
     }
 
     public function create(Company $company, ContactForm $form)
@@ -29,12 +29,6 @@ class ContactController extends Controller
     public function store(ValidatesContactRequest $request)
     {
         $contact = Contact::create($request->validated());
-
-        return [
-            'message' => __('The company was successfully created'),
-            'redirect' => null,
-            'id' => $contact->id,
-        ];
     }
 
     public function edit(Contact $contact, ContactForm $form)
@@ -45,16 +39,10 @@ class ContactController extends Controller
     public function update(ValidatesContactRequest $request, Contact $contact)
     {
         $contact->update($request->all());
-
-        return ['message' => __('The company was successfully updated')];
     }
 
     public function destroy(Contact $contact)
     {
         $contact->delete();
-
-        return [
-            'message' => __('The contact was successfully deleted'),
-        ];
     }
 }

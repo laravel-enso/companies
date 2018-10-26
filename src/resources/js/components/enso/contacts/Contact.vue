@@ -1,13 +1,13 @@
 <template>
     <div class="box has-background-light raises-on-hover">
         <p class="title is-5">
-            {{ contact.person.name }}
+            {{ contact.name }}
         </p>
         <p class="subtitle is-6">
             {{ contact.position }}
         </p>
         <p class="has-text-weight-light is-7">
-            {{ contact.person.email }} {{ contact.person.phone }}
+            {{ contact.email }} {{ contact.phone }}
         </p>
 
         <div class="has-text-centered has-margin-top-medium">

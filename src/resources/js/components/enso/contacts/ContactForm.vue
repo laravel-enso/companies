@@ -1,6 +1,7 @@
 <template>
-    <modal v-on="$listeners"
-        :show="true">
+    <modal class="contact-form"
+        show
+        v-on="$listeners">
         <vue-form class="box has-background-light"
             v-on="$listeners"
             :data="form"/>
@@ -26,3 +27,13 @@ export default {
 };
 
 </script>
+
+<style lang="scss">
+
+    .contact-form {
+        .modal-content {
+            overflow: unset;
+        }
+    }
+
+</style>
