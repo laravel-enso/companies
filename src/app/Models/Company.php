@@ -28,7 +28,7 @@ class Company extends Model
 
     public function mandatary()
     {
-        return $this->hasOne(self::class);
+        return $this->belongsTo(Person::class, 'mandatary_id');
     }
 
     public function contacts()
