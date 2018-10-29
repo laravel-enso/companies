@@ -9,7 +9,6 @@
         <p class="has-text-weight-light is-7">
             {{ contact.email }} {{ contact.phone }}
         </p>
-
         <div class="has-text-centered has-margin-top-medium">
             <div class="details">
                 <button class="button is-naked"

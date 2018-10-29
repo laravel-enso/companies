@@ -45,9 +45,7 @@ library.add(faAddressCard, faPlusSquare);
 export default {
     name: 'ContactsCard',
 
-    components: {
-        Card, CardControl, Contacts,
-    },
+    components: { Card, CardControl, Contacts },
 
     props: {
         id: {

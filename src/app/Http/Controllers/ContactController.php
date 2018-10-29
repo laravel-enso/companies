@@ -29,6 +29,10 @@ class ContactController extends Controller
     public function store(ValidatesContactRequest $request)
     {
         Contact::create($request->all());
+
+        return [
+            'message' => __('The contact was successfully created'),
+        ];
     }
 
     public function edit(Contact $contact, ContactForm $form)
@@ -39,6 +43,10 @@ class ContactController extends Controller
     public function update(ValidatesContactRequest $request, Contact $contact)
     {
         $contact->update($request->all());
+
+        return [
+            'message' => __('The contact have been successfully updated'),
+        ];
     }
 
     public function destroy(Contact $contact)

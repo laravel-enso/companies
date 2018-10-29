@@ -29,8 +29,8 @@ class CleanMorphableContacts extends Command
     private function clean()
     {
         DB::transaction(function () {
-            $this->cleanPermissions();
             $this->cleanMenuStructure();
+            $this->cleanPermissions();
             $this->dropTable();
         });
     }
