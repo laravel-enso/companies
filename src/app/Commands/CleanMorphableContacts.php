@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Console\Commands;
+namespace LaravelEnso\Companies\app\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -21,9 +21,9 @@ class CleanMorphableContacts extends Command
 
     public function handle()
     {
-        $this->info('The upgrade process has started');
+        $this->info('The cleanup process has started');
         $this->clean();
-        $this->info('The upgrade process was successful.');
+        $this->info('The cleanup process was successful.');
     }
 
     private function clean()

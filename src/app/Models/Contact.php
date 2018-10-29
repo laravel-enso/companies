@@ -10,13 +10,14 @@ use LaravelEnso\ActivityLog\app\Traits\LogsActivity;
 
 class Contact extends Model
 {
-    use CreatedBy, LogsActivity, UpdatedBy;
+
+    use LogsActivity;
 
     protected $guarded = [];
 
     protected $loggableLabel = 'person.name';
-
     protected $loggable = ['position'];
+    protected $loggableRelation = ['company' => 'name'];
 
     public function company()
     {

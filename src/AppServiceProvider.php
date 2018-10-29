@@ -3,7 +3,7 @@
 namespace LaravelEnso\Companies;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelEnso\Companies\app\Console\Commands\CleanMorphableContacts;
+use LaravelEnso\Companies\app\Commands\CleanMorphableContacts;
 
 class AppServiceProvider extends ServiceProvider
 {

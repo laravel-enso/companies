@@ -4,7 +4,7 @@ namespace LaravelEnso\Companies\app\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Company extends JsonResource
+class Contact extends JsonResource
 {
     public function toArray($request)
     {
@@ -12,9 +12,9 @@ class Company extends JsonResource
             'id' => $this->id,
             'company_id' => $this->company_id,
             'position' => $this->position,
-            'name' => $this->person->name,
-            'phone' => $this->person->phone,
-            'email' => $this->person->email,
+            'name' => $this->whenLoaded('person', $this->person->name),
+            'phone' => $this->whenLoaded('person', $this->person->phone),
+            'email' => $this->whenLoaded('person', $this->person->email),
             'createdAt' => $this->created_at->toDatetimeString(),
         ];
     }

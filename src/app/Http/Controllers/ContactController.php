@@ -7,13 +7,14 @@ use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Models\Contact;
 use LaravelEnso\Companies\app\Forms\Builders\ContactForm;
 use LaravelEnso\Companies\app\Contracts\ValidatesContactRequest;
-use LaravelEnso\Companies\app\Http\Resources\Company as Resource;
+use LaravelEnso\Companies\app\Http\Resources\Contact as Resource;
 
 class ContactController extends Controller
 {
     public function index(Company $company)
     {
-        return Resource::collection($company
+        return Resource::collection(
+            $company
             ->contacts()
             ->with('person')
             ->get()
@@ -27,7 +28,7 @@ class ContactController extends Controller
 
     public function store(ValidatesContactRequest $request)
     {
-        $contact = Contact::create($request->validated());
+        Contact::create($request->all());
     }
 
     public function edit(Contact $contact, ContactForm $form)

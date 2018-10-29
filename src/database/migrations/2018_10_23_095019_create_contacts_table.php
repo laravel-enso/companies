@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -8,6 +9,8 @@ class CreateContactsTable extends Migration
 {
     public function up()
     {
+        Artisan::call('enso:companies:clean-morphable-contacts');
+
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
 
@@ -19,15 +22,9 @@ class CreateContactsTable extends Migration
 
             $table->string('position')->nullable();
 
-            $table->unique(['company_id', 'person_id', 'position']);
+            $table->unique(['company_id', 'person_id']);
 
             $table->timestamps();
-
-            $table->integer('created_by')->unsigned()->index()->nullable();
-            $table->foreign('created_by')->references('id')->on('users');
-
-            $table->integer('updated_by')->unsigned()->index()->nullable();
-            $table->foreign('updated_by')->references('id')->on('users');
         });
     }
 

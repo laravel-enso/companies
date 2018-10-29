@@ -2,6 +2,7 @@
 
 namespace LaravelEnso\Companies\app\Forms\Builders;
 
+use Illuminate\Support\Facades\File;
 use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Models\Contact;
 use LaravelEnso\FormBuilder\app\Classes\Form;
@@ -33,6 +34,11 @@ class ContactForm
 
     private function templatePath()
     {
-        return self::TemplatePath;
+        $file = config('enso.companies.contactFormTemplate');
+        $templatePath = base_path($file);
+
+        return $file && File::exists($templatePath)
+            ? $templatePath
+            : self::TemplatePath;
     }
 }
