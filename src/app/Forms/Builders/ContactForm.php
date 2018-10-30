@@ -3,7 +3,6 @@
 namespace LaravelEnso\Companies\app\Forms\Builders;
 
 use Illuminate\Support\Facades\File;
-use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Models\Contact;
 use LaravelEnso\FormBuilder\app\Classes\Form;
 
@@ -18,7 +17,7 @@ class ContactForm
         $this->form = new Form($this->templatePath());
     }
 
-    public function create(Company $company)
+    public function create()
     {
         return $this->form
             ->actions('store')
