@@ -3,9 +3,9 @@
     <div class="columns is-centered">
         <div class="column is-three-quarters is-full-touch">
             <vue-form-ss class="box has-background-light raises-on-hover animated fadeIn"
-                @loaded="initialised = true"
+                @loaded="ready = true"
                 ref="form"/>
-            <div v-if="initialised">
+            <div v-if="ready">
                 <accessories type="LaravelEnso\Companies\app\Models\Company"
                     :id="$refs.form.data.routeParams.company"
                     addresses
@@ -41,7 +41,7 @@ export default {
     },
 
     data: () => ({
-        initialised: false,
+        ready: false,
     }),
 };
 
