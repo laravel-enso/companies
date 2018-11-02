@@ -22,7 +22,7 @@ class ValidateCompanyRequest extends FormRequest implements ValidatesCompanyRequ
         }
 
         return [
-            'mandatary_id' => 'nullable|exists:persons,id',
+            'mandatary_id' => 'nullable|exists:people,id',
             'name' => ['required', 'string', $nameUnique],
             'email' => 'email|nullable',
             'phone' => 'nullable',
