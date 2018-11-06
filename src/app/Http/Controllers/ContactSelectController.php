@@ -10,5 +10,7 @@ class ContactSelectController extends Controller
 {
     use OptionsBuilder;
 
+    protected $queryAttributes = ['person.name', 'person.appellative', 'position'];
+
     protected $model = Contact::class;
 }

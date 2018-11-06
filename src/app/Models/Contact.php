@@ -12,8 +12,12 @@ class Contact extends Model
 
     protected $guarded = [];
 
+    protected $casts = ['company_id' => 'integer', 'person_id' => 'integer'];
+
     protected $loggableLabel = 'person.name';
+
     protected $loggable = ['position'];
+
     protected $loggableRelation = ['company' => 'name'];
 
     public function company()

@@ -21,7 +21,7 @@ class ContactTest extends TestCase
     {
         parent::setUp();
 
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
 
         $this->seed()
             ->actingAs(User::first());
@@ -75,7 +75,7 @@ class ContactTest extends TestCase
     }
 
     /** @test */
-    public function get_option_list()
+    public function can_get_option_list()
     {
         $this->testModel->save();
 
