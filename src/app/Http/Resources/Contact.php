@@ -11,6 +11,7 @@ class Contact extends JsonResource
         return [
             'id' => $this->id,
             'position' => $this->position,
+            'person_id' => $this->person_id,
             'name' => $this->whenLoaded('person', $this->person->name),
             'phone' => $this->whenLoaded('person', $this->person->phone),
             'email' => $this->whenLoaded('person', $this->person->email),
