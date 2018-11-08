@@ -10,8 +10,6 @@ class Contact extends JsonResource
     {
         return [
             'id' => $this->id,
-            'company_id' => $this->company_id,
-            'person_id' => $this->person_id,
             'position' => $this->position,
             'name' => $this->whenLoaded('person', $this->person->name),
             'phone' => $this->whenLoaded('person', $this->person->phone),
