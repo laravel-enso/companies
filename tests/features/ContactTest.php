@@ -49,7 +49,7 @@ class ContactTest extends TestCase
             $this->testModel->toArray()
         );
 
-        $contact = Contact::whereName($this->testModel->name)
+        Contact::whereName($this->testModel->name)
             ->first();
 
         $response->assertStatus(200)

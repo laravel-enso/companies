@@ -30,8 +30,8 @@ Route::namespace('LaravelEnso\Companies\app\Http\Controllers')
                             ->name('contacts.options');
 
                 Route::resource('contacts', 'ContactController', [
-                    'except' => ['show', 'index', 'create',
-                ], ]);
+                    'except' => ['show', 'index', 'create'],
+                ]);
             });
 
         Route::resource('companies', 'CompanyController', ['except' => ['index', 'show']]);
