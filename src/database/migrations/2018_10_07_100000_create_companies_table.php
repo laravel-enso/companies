@@ -33,10 +33,18 @@ class CreateCompaniesTable extends Migration
 
             $table->timestamps();
         });
+
+        Schema::table('people', function (Blueprint $table) {
+            $table->foreign('company_id')->references('id')->on('companies');
+        });
     }
 
     public function down()
     {
+        Schema::table('people', function (Blueprint $table) {
+            $table->dropForeign(['company_id']);
+        });
+
         Schema::dropIfExists('companies');
     }
 }
