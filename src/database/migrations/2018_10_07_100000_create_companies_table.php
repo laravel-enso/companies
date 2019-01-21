@@ -19,8 +19,6 @@ class CreateCompaniesTable extends Migration
             $table->string('phone')->nullable();
             $table->string('fax')->nullable();
 
-            $table->string('mandatary_position')->nullable();
-
             $table->string('bank')->nullable();
             $table->string('bank_account')->nullable();
 

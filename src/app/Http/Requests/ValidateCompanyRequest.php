@@ -27,11 +27,30 @@ class ValidateCompanyRequest extends FormRequest implements ValidatesCompanyRequ
             'email' => 'email|nullable',
             'phone' => 'nullable',
             'fax' => 'nullable',
-            'mandatary_position' => 'string|nullable',
             'bank' => 'string|nullable',
             'bank_account' => 'string|nullable',
             'obs' => 'string|nullable',
             'pays_vat' => 'required|boolean',
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        if (! $this->filled('mandatary_id')) {
+            return;
+        }
+
+        $validator->after(function ($validator) {
+            if (! $this->mandataryIsAssociated()) {
+                $validator->errors()->add('mandatary_id', 'This person is not associated with the current company');
+            }
+        });
+    }
+
+    private function mandataryIsAssociated()
+    {
+        return $this->route('company')->people()
+            ->pluck('id')
+            ->contains($this->get('mandatary_id'));
     }
 }

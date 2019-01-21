@@ -11,6 +11,18 @@
                 "content": "text"
             }
         }, {
+            "label": "Mandatary",
+            "name": "mandatary_id",
+            "value": null,
+            "meta": {
+                "custom": true,
+                "type": "select",
+                "source": "administration.people.options"
+            }
+        }]
+    }, {
+        "columns": 3,
+        "fields": [{
             "label": "Email",
             "name": "email",
             "value": null,
@@ -34,23 +46,11 @@
                 "type": "input",
                 "content": "text"
             }
-        }, {
-            "label": "Mandatary",
-            "name": "mandatary_id",
-            "value": null,
-            "meta": {
-                "type": "select",
-                "source": "administration.people.options"
-            }
-        }, {
-            "label": "Mandatary Position",
-            "name": "mandatary_position",
-            "value": null,
-            "meta": {
-                "type": "input",
-                "content": "text"
-            }
-        }, {
+        }]
+    }, {
+        "columns": "custom",
+        "fields": [{
+            "column": 5,
             "label": "Bank",
             "name": "bank",
             "value": null,
@@ -59,6 +59,7 @@
                 "content": "text"
             }
         }, {
+            "column": 5,
             "label": "Bank Account",
             "name": "bank_account",
             "value": null,
@@ -67,6 +68,7 @@
                 "content": "text"
             }
         }, {
+            "column": 2,
             "label": "Pays VAT",
             "name": "pays_vat",
             "value": false,

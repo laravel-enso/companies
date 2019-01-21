@@ -31,14 +31,9 @@ class Company extends Model
         return $this->belongsTo(Person::class, 'mandatary_id');
     }
 
-    public function contacts()
-    {
-        return $this->hasMany(Contact::class);
-    }
-
     public function people()
     {
-        return $this->belongsToMany(Person::class, 'contacts');
+        return $this->hasMany(Person::class);
     }
 
     public function delete()

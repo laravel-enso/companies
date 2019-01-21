@@ -17,21 +17,25 @@ Route::namespace('LaravelEnso\Companies\app\Http\Controllers')
                 Route::get('options', 'CompanySelectController@options')
                     ->name('options');
 
-                Route::prefix('{company}/contacts')->as('contacts.')
+                Route::prefix('{company}/people')->as('people.')
                     ->group(function () {
-                        Route::get('', 'ContactController@index')
+                        Route::get('', 'PersonController@index')
                             ->name('index');
-
-                        Route::get('create', 'ContactController@create')
+                        Route::get('create', 'PersonController@create')
                             ->name('create');
                     });
 
-                Route::get('contacts/options', 'ContactSelectController@options')
-                            ->name('contacts.options');
-
-                Route::resource('contacts', 'ContactController', [
-                    'except' => ['show', 'index', 'create'],
-                ]);
+                Route::prefix('people')->as('people.')
+                    ->group(function () {
+                        Route::get('{person}/edit', 'PersonController@edit')
+                            ->name('edit');
+                        Route::patch('{person}', 'PersonController@update')
+                            ->name('update');
+                        Route::post('store', 'PersonController@store')
+                            ->name('store');
+                        Route::delete('{person}', 'PersonController@destroy')
+                            ->name('destroy');
+                    });
             });
 
         Route::resource('companies', 'CompanyController', ['except' => ['index', 'show']]);
