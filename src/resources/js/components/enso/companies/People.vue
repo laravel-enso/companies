@@ -49,13 +49,7 @@
             <person-form :path="path"
                 @close="path = null"
                 @destroy="fetch()"
-                @edit-person="
-                    path = null;
-                    $router.push({
-                        name: 'administration.people.edit',
-                        params: { person: $event},
-                    });
-                "
+                @edit-person="navigateToPerson"
                 @submit="fetch(); path = null"
                 @loaded="$refs.form.field('company_id').value = id"
                 ref="form"
@@ -203,6 +197,16 @@ export default {
                 this.loading = false;
             }).catch(error => this.handleError(error));
         },
+        navigateToPerson($event) {
+            this.path = null;
+
+            this.$nextTick(() => {
+                this.$router.push({
+                    name: 'administration.people.edit',
+                    params: { person: $event },
+                });
+            });
+        }
     },
 };
 
