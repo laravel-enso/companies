@@ -35,6 +35,7 @@ class CreateCompaniesTable extends Migration
         });
 
         Schema::table('people', function (Blueprint $table) {
+            $table->integer('company_id')->after('id')->unsigned()->index()->nullable();
             $table->foreign('company_id')->references('id')->on('companies');
         });
     }
@@ -43,6 +44,7 @@ class CreateCompaniesTable extends Migration
     {
         Schema::table('people', function (Blueprint $table) {
             $table->dropForeign(['company_id']);
+            $table->dropColumn('company_id');
         });
 
         Schema::dropIfExists('companies');
