@@ -11,14 +11,13 @@ class CompanyPeopleTest extends TestCase
 {
     use RefreshDatabase;
 
-    private $permissionGroup = 'administration.companies.people';
     private $testModel;
 
     protected function setUp()
     {
         parent::setUp();
 
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
 
         $this->seed()
             ->actingAs(User::first());
