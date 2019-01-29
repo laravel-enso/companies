@@ -36,6 +36,11 @@ class Company extends Model
         return $this->hasMany(Person::class);
     }
 
+    public function isTenant()
+    {
+        return false;
+    }
+
     public function delete()
     {
         try {
