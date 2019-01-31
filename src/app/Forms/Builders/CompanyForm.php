@@ -18,7 +18,10 @@ class CompanyForm
 
     public function create()
     {
-        return $this->form->create();
+        return $this->form->meta('mandatary_id', 'custom', false)
+            ->meta('mandatary_id', 'placeholder', 'N/A')
+            ->readonly('mandatary_id')
+            ->create();
     }
 
     public function edit(Company $company)

@@ -50,7 +50,7 @@
     }, {
         "columns": "custom",
         "fields": [{
-            "column": 5,
+            "column": 4,
             "label": "Bank",
             "name": "bank",
             "value": null,
@@ -59,7 +59,7 @@
                 "content": "text"
             }
         }, {
-            "column": 5,
+            "column": 4,
             "label": "Bank Account",
             "name": "bank_account",
             "value": null,
@@ -71,6 +71,15 @@
             "column": 2,
             "label": "Pays VAT",
             "name": "pays_vat",
+            "value": false,
+            "meta": {
+                "type": "input",
+                "content": "checkbox"
+            }
+        }, {
+            "column": 2,
+            "label": "Is Tenant",
+            "name": "is_tenant",
             "value": false,
             "meta": {
                 "type": "input",

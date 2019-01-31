@@ -11,12 +11,13 @@ use LaravelEnso\ActivityLog\app\Traits\LogsActivity;
 use LaravelEnso\CommentsManager\app\Traits\Commentable;
 use LaravelEnso\AddressesManager\app\Traits\Addressable;
 use LaravelEnso\DocumentsManager\app\Traits\Documentable;
+use LaravelEnso\Multitenancy\app\Traits\SystemConnection;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class Company extends Model
 {
     use Addressable, Commentable, CreatedBy, Discussable,
-        Documentable, LogsActivity, UpdatedBy;
+        Documentable, LogsActivity, UpdatedBy, SystemConnection;
 
     protected $guarded = [];
 
@@ -38,11 +39,22 @@ class Company extends Model
 
     public function isTenant()
     {
-        return false;
+        return $this->is_tenant;
+    }
+
+    public function scopeTenants($query)
+    {
+        $query->whereIsTenant(true);
     }
 
     public function delete()
     {
+        if ($this->isTenant()) {
+            throw new ConflictHttpException(__(
+                'The company is a tenant and cannot be deleted'
+            ));
+        }
+
         try {
             parent::delete();
         } catch (\Exception $e) {

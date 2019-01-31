@@ -25,6 +25,8 @@ class CreateCompaniesTable extends Migration
             $table->text('obs')->nullable();
             $table->string('pays_vat')->boolean();
 
+            $table->string('is_tenant')->boolean();
+
             $table->integer('created_by')->unsigned()->index()->nullable();
             $table->foreign('created_by')->references('id')->on('users');
 

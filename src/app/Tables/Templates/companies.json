@@ -38,6 +38,11 @@
         "data": "companies.pays_vat",
         "meta": ["boolean", "sortable"]
     }, {
+        "label": "Tenant",
+        "name": "is_tenant",
+        "data": "companies.is_tenant",
+        "meta": ["boolean", "sortable"]
+    }, {
         "label": "Created at",
         "name": "created_at",
         "data": "companies.created_at",
