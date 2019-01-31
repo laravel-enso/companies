@@ -27,6 +27,8 @@ class Company extends Model
 
     protected $loggable = ['name', 'email', 'phone'];
 
+    protected $cachedTable = 'companies';
+
     public function mandatary()
     {
         return $this->belongsTo(Person::class, 'mandatary_id');
