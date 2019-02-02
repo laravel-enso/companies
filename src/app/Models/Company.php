@@ -7,6 +7,7 @@ use LaravelEnso\People\app\Models\Person;
 use LaravelEnso\TrackWho\app\Traits\CreatedBy;
 use LaravelEnso\TrackWho\app\Traits\UpdatedBy;
 use LaravelEnso\Discussions\app\Traits\Discussable;
+use LaravelEnso\VueDatatable\app\Traits\TableCache;
 use LaravelEnso\ActivityLog\app\Traits\LogsActivity;
 use LaravelEnso\CommentsManager\app\Traits\Commentable;
 use LaravelEnso\AddressesManager\app\Traits\Addressable;
@@ -16,12 +17,12 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class Company extends Model
 {
-    use Addressable, Commentable, CreatedBy, Discussable,
-        Documentable, LogsActivity, UpdatedBy, SystemConnection;
+    use Addressable, Commentable, CreatedBy, Discussable, Documentable,
+    LogsActivity, UpdatedBy, SystemConnection, TableCache;
 
     protected $guarded = [];
 
-    protected $casts = ['pays_vat' => 'boolean'];
+    protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];
 
     protected $loggableLabel = 'name';
 
