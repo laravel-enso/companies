@@ -17,6 +17,9 @@ Route::namespace('LaravelEnso\Companies\app\Http\Controllers')
                 Route::get('options', 'CompanySelectController@options')
                     ->name('options');
 
+                Route::get('tenants', 'TenantSelectController@options')
+                    ->name('tenants');
+
                 Route::prefix('{company}/people')->as('people.')
                     ->group(function () {
                         Route::get('', 'PersonController@index')

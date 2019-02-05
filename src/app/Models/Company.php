@@ -4,21 +4,21 @@ namespace LaravelEnso\Companies\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use LaravelEnso\People\app\Models\Person;
-use LaravelEnso\TrackWho\app\Traits\CreatedBy;
-use LaravelEnso\TrackWho\app\Traits\UpdatedBy;
+use LaravelEnso\Multitenancy\app\Traits\CreatedBy;
+use LaravelEnso\Multitenancy\app\Traits\UpdatedBy;
 use LaravelEnso\Discussions\app\Traits\Discussable;
 use LaravelEnso\VueDatatable\app\Traits\TableCache;
 use LaravelEnso\ActivityLog\app\Traits\LogsActivity;
 use LaravelEnso\CommentsManager\app\Traits\Commentable;
 use LaravelEnso\AddressesManager\app\Traits\Addressable;
+use LaravelEnso\Multitenancy\app\Traits\MixedConnection;
 use LaravelEnso\DocumentsManager\app\Traits\Documentable;
-use LaravelEnso\Multitenancy\app\Traits\SystemConnection;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class Company extends Model
 {
     use Addressable, Commentable, CreatedBy, Discussable, Documentable,
-    LogsActivity, UpdatedBy, SystemConnection, TableCache;
+    LogsActivity, UpdatedBy, MixedConnection, TableCache;
 
     protected $guarded = [];
 
