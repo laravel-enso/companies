@@ -4,8 +4,8 @@ namespace LaravelEnso\Companies\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use LaravelEnso\People\app\Models\Person;
-use LaravelEnso\Multitenancy\app\Traits\CreatedBy;
-use LaravelEnso\Multitenancy\app\Traits\UpdatedBy;
+use LaravelEnso\TrackWho\app\Traits\CreatedBy;
+use LaravelEnso\TrackWho\app\Traits\UpdatedBy;
 use LaravelEnso\Discussions\app\Traits\Discussable;
 use LaravelEnso\VueDatatable\app\Traits\TableCache;
 use LaravelEnso\ActivityLog\app\Traits\LogsActivity;
