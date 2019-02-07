@@ -11,14 +11,13 @@ use LaravelEnso\VueDatatable\app\Traits\TableCache;
 use LaravelEnso\ActivityLog\app\Traits\LogsActivity;
 use LaravelEnso\CommentsManager\app\Traits\Commentable;
 use LaravelEnso\AddressesManager\app\Traits\Addressable;
-use LaravelEnso\Multitenancy\app\Traits\MixedConnection;
 use LaravelEnso\DocumentsManager\app\Traits\Documentable;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class Company extends Model
 {
     use Addressable, Commentable, CreatedBy, Discussable, Documentable,
-    LogsActivity, UpdatedBy, MixedConnection, TableCache;
+    LogsActivity, UpdatedBy, TableCache;
 
     protected $guarded = [];
 

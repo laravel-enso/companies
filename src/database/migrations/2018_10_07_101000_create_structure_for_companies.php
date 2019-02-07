@@ -9,7 +9,6 @@ class CreateStructureForCompanies extends StructureMigration
         ['name' => 'administration.companies.tableData', 'description' => 'Get table data for companies', 'type' => 0, 'is_default' => false],
         ['name' => 'administration.companies.exportExcel', 'description' => 'Export excel for companies', 'type' => 0, 'is_default' => false],
         ['name' => 'administration.companies.options', 'description' => 'Get options for select', 'type' => 0, 'is_default' => false],
-        ['name' => 'administration.companies.tenants', 'description' => 'Get options for tenant selector', 'type' => 0, 'is_default' => false],
         ['name' => 'administration.companies.create', 'description' => 'Create company', 'type' => 1, 'is_default' => false],
         ['name' => 'administration.companies.edit', 'description' => 'Edit existing company', 'type' => 1, 'is_default' => false],
         ['name' => 'administration.companies.index', 'description' => 'Show companies', 'type' => 0, 'is_default' => false],
