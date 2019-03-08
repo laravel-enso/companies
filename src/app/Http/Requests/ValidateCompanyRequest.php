@@ -4,9 +4,8 @@ namespace LaravelEnso\Companies\app\Http\Requests;
 
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
-use LaravelEnso\Companies\app\Contracts\ValidatesCompanyRequest;
 
-class ValidateCompanyRequest extends FormRequest implements ValidatesCompanyRequest
+class ValidateCompanyRequest extends FormRequest
 {
     public function authorize()
     {

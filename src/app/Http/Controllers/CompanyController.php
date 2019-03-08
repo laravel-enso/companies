@@ -6,7 +6,7 @@ use Illuminate\Routing\Controller;
 use LaravelEnso\Companies\app\Models\Company;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use LaravelEnso\Companies\app\Forms\Builders\CompanyForm;
-use LaravelEnso\Companies\app\Contracts\ValidatesCompanyRequest;
+use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -17,7 +17,7 @@ class CompanyController extends Controller
         return ['form' => $form->create()];
     }
 
-    public function store(ValidatesCompanyRequest $request)
+    public function store(ValidateCompanyRequest $request)
     {
         $company = Company::create($request->all());
 
@@ -33,7 +33,7 @@ class CompanyController extends Controller
         return ['form' => $form->edit($company)];
     }
 
-    public function update(ValidatesCompanyRequest $request, Company $company)
+    public function update(ValidateCompanyRequest $request, Company $company)
     {
         $company->update($request->all());
 
