@@ -16,7 +16,7 @@ class CompanyTest extends TestCase
     private $permissionGroup = 'administration.companies';
     private $testModel;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
