@@ -35,15 +35,14 @@ class ValidateCompanyRequest extends FormRequest
 
     public function withValidator($validator)
     {
-        if (! $this->filled('mandatary_id')) {
-            return;
+        if ($this->filled('mandatary_id') && ! $this->mandataryIsAssociated()) {
+            $validator->after(function ($validator) {
+                $validator->errors()->add(
+                    'mandatary_id',
+                    'This person is not associated with the current company'
+                );
+            });
         }
-
-        $validator->after(function ($validator) {
-            if (! $this->mandataryIsAssociated()) {
-                $validator->errors()->add('mandatary_id', 'This person is not associated with the current company');
-            }
-        });
     }
 
     private function mandataryIsAssociated()

@@ -23,12 +23,13 @@ class ValidatePersonRequest extends FormRequest
 
     public function withValidator($validator)
     {
-        $validator->after(function ($validator) {
-            if ($this->method() === 'POST' && $this->personExists()) {
-                $validator->errors()
-                    ->add('id', 'The selected person is already a person of this company');
-            }
-        });
+        if ($this->method() === 'POST' && $this->personExists()) {
+            $validator->after(function ($validator) {
+                $validator->errors()->add(
+                    'id', 'The selected person is already a person of this company'
+                );
+            });
+        }
     }
 
     private function personExists()

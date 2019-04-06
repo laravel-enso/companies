@@ -38,5 +38,6 @@ Route::namespace('LaravelEnso\Companies\app\Http\Controllers')
                     });
             });
 
-        Route::resource('companies', 'CompanyController', ['except' => ['index', 'show']]);
+        Route::resource('companies', 'CompanyController')
+            ->except('index', 'show');
     });

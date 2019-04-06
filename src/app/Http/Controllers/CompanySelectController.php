@@ -13,13 +13,11 @@ class CompanySelectController extends Controller
 
     public function query(Request $request)
     {
-        $query = Company::query();
-
-        if (! $request->user()->belongsToAdminGroup()
-            && $request->user()->person->company_id) {
-            $query->whereId($request->user()->person->company_id);
-        }
-
-        return $query;
+        return Company::when(
+            ! $request->user()->belongsToAdminGroup()
+            && $request->user()->person->company_id,
+            function ($query) use ($request) {
+                $query->whereId($request->user()->person->company_id);
+            });
     }
 }

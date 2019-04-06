@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 class Company extends Model
 {
     use Addressable, Commentable, CreatedBy, Discussable, Documentable,
-    LogsActivity, UpdatedBy, TableCache;
+        LogsActivity, UpdatedBy, TableCache;
 
     protected $guarded = [];
 
@@ -26,8 +26,6 @@ class Company extends Model
     protected $loggableLabel = 'name';
 
     protected $loggable = ['name', 'email', 'phone'];
-
-    protected $cachedTable = 'companies';
 
     public function mandatary()
     {

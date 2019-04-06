@@ -59,9 +59,8 @@ class CompanyTest extends TestCase
     /** @test */
     public function can_update_company()
     {
-        $this->testModel->save();
-
-        $this->testModel->name = 'updated';
+        tap($this->testModel)->save()
+            ->name = 'updated';
 
         $this->patch(
             route('administration.companies.update', $this->testModel->id, false),
@@ -69,7 +68,9 @@ class CompanyTest extends TestCase
         )->assertStatus(200)
         ->assertJsonStructure(['message']);
 
-        $this->assertEquals('updated', $this->testModel->fresh()->name);
+        $this->assertEquals(
+            $this->testModel->name, $this->testModel->fresh()->name
+        );
     }
 
     /** @test */
@@ -82,8 +83,6 @@ class CompanyTest extends TestCase
             'limit' => 10,
         ], false))
         ->assertStatus(200)
-        ->assertJsonFragment([
-            'name' => $this->testModel->name,
-        ]);
+        ->assertJsonFragment(['name' => $this->testModel->name]);
     }
 }

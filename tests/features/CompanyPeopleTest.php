@@ -90,9 +90,7 @@ class CompanyPeopleTest extends TestCase
             'limit' => 10,
         ], false))
         ->assertStatus(200)
-        ->assertJsonFragment([
-            'id' => $this->testModel->id,
-        ]);
+        ->assertJsonFragment(['id' => $this->testModel->id]);
     }
 
     /** @test */
