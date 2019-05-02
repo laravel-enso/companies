@@ -17,9 +17,11 @@ class CompanyController extends Controller
         return ['form' => $form->create()];
     }
 
-    public function store(ValidateCompanyRequest $request)
+    public function store(ValidateCompanyRequest $request, Company $company)
     {
-        $company = Company::create($request->all());
+        tap($company)
+            ->fill($request->all())
+            ->save();
 
         return [
             'message' => __('The company was successfully created'),
