@@ -7,25 +7,23 @@ use LaravelEnso\People\app\Models\Person;
 use LaravelEnso\TrackWho\app\Traits\CreatedBy;
 use LaravelEnso\TrackWho\app\Traits\UpdatedBy;
 use LaravelEnso\Discussions\app\Traits\Discussable;
-use LaravelEnso\VueDatatable\app\Traits\TableCache;
-use LaravelEnso\ActivityLog\app\Traits\LogsActivity;
-use LaravelEnso\CommentsManager\app\Traits\Commentable;
-use LaravelEnso\AddressesManager\app\Traits\Addressable;
-use LaravelEnso\DocumentsManager\app\Traits\Documentable;
+use LaravelEnso\Tables\app\Traits\TableCache;
+use LaravelEnso\Comments\app\Traits\Commentable;
+use LaravelEnso\Addresses\app\Traits\Addressable;
+use LaravelEnso\Documents\app\Traits\Documentable;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class Company extends Model
 {
-    use Addressable, Commentable, CreatedBy, Discussable, Documentable,
-        LogsActivity, UpdatedBy, TableCache;
+    use Addressable, Commentable, CreatedBy, Discussable,
+        Documentable, UpdatedBy, TableCache;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'mandatary_id', 'name', 'email', 'phone', 'fax',
+        'bank', 'bank_account', 'obs', 'pays_vat', 'is_tenant'
+    ];
 
     protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];
-
-    protected $loggableLabel = 'name';
-
-    protected $loggable = ['name', 'email', 'phone'];
 
     public function mandatary()
     {
@@ -42,7 +40,7 @@ class Company extends Model
         return $this->is_tenant;
     }
 
-    public function scopeTenants($query)
+    public function scopeTenant($query)
     {
         $query->whereIsTenant(true);
     }
@@ -59,10 +57,10 @@ class Company extends Model
             parent::delete();
         } catch (\Exception $e) {
             throw new ConflictHttpException(__(
-                'The company has activity in the system and cannot be deleted'
+                'The company is assigned to resources in the system and cannot be deleted'
             ));
         }
 
-        return ['message' => 'The company was successfully deleted'];
+        return ['message' => __('The company was successfully deleted')];
     }
 }

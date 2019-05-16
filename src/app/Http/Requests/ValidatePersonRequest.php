@@ -26,7 +26,7 @@ class ValidatePersonRequest extends FormRequest
         if ($this->method() === 'POST' && $this->personExists()) {
             $validator->after(function ($validator) {
                 $validator->errors()->add(
-                    'id', 'The selected person is already a person of this company'
+                    'id', __('The selected person is already associated to this company')
                 );
             });
         }

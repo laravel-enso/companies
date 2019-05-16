@@ -1,13 +1,13 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Http\Controllers;
+namespace LaravelEnso\Companies\app\Http\Controllers\Company;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Select\app\Traits\OptionsBuilder;
 
-class CompanySelectController extends Controller
+class Options extends Controller
 {
     use OptionsBuilder;
 

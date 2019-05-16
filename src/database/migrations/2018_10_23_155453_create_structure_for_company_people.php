@@ -1,8 +1,8 @@
 <?php
 
-use LaravelEnso\StructureManager\app\Classes\StructureMigration;
+use LaravelEnso\Migrator\app\Database\Migration;
 
-class CreateStructureForCompanyPeople extends StructureMigration
+class CreateStructureForCompanyPeople extends Migration
 {
     protected $permissions = [
         ['name' => 'administration.companies.people.create', 'description' => 'Add person to company', 'type' => 1, 'is_default' => false],

@@ -2,8 +2,9 @@
 
 namespace LaravelEnso\Companies\app\Forms\Builders;
 
+use Illuminate\Support\Facades\File;
 use LaravelEnso\Companies\app\Models\Company;
-use LaravelEnso\FormBuilder\app\Classes\Form;
+use LaravelEnso\Forms\app\Services\Form;
 
 class CompanyForm
 {
@@ -32,9 +33,10 @@ class CompanyForm
     private function templatePath()
     {
         $file = config('enso.companies.formTemplate');
+
         $templatePath = base_path($file);
 
-        return $file && \File::exists($templatePath)
+        return $file && File::exists($templatePath)
             ? $templatePath
             : self::TemplatePath;
     }

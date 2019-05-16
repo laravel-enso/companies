@@ -2,42 +2,40 @@
 
 Route::namespace('LaravelEnso\Companies\app\Http\Controllers')
     ->middleware(['web', 'auth', 'core'])
-    ->prefix('api/administration')
-    ->as('administration.')
+    ->prefix('api/administration/companies')
+    ->as('administration.companies.')
     ->group(function () {
-        Route::prefix('companies')->as('companies.')
+        Route::namespace('Company')
             ->group(function () {
-                Route::get('initTable', 'CompanyTableController@init')
-                    ->name('initTable');
-                Route::get('tableData', 'CompanyTableController@data')
-                    ->name('tableData');
-                Route::get('exportExcel', 'CompanyTableController@excel')
-                    ->name('exportExcel');
+                Route::get('create', 'Create')->name('create');
+                Route::post('', 'Store')->name('store');
+                Route::get('{company}/edit', 'Edit')->name('edit');
+                Route::patch('{company}', 'Update')->name('update');
+                Route::delete('{company}', 'Destroy')->name('destroy');
 
-                Route::get('options', 'CompanySelectController@options')
-                    ->name('options');
+                Route::get('initTable', 'Table@init')->name('initTable');
+                Route::get('tableData', 'Table@data')->name('tableData');
+                Route::get('exportExcel', 'Table@excel')->name('exportExcel');
 
-                Route::prefix('{company}/people')->as('people.')
-                    ->group(function () {
-                        Route::get('', 'PersonController@index')
-                            ->name('index');
-                        Route::get('create', 'PersonController@create')
-                            ->name('create');
-                    });
-
-                Route::prefix('people')->as('people.')
-                    ->group(function () {
-                        Route::get('{person}/edit', 'PersonController@edit')
-                            ->name('edit');
-                        Route::patch('{person}', 'PersonController@update')
-                            ->name('update');
-                        Route::post('store', 'PersonController@store')
-                            ->name('store');
-                        Route::delete('{person}', 'PersonController@destroy')
-                            ->name('destroy');
-                    });
+                Route::get('options', 'Options')->name('options');
             });
 
-        Route::resource('companies', 'CompanyController')
-            ->except('index', 'show');
+        Route::namespace('Person')
+            ->group(function () {
+                Route::prefix('{company}/people')
+                    ->as('people.')
+                    ->group(function () {
+                        Route::get('', 'Index')->name('index');
+                        Route::get('create', 'Create')->name('create');
+                    });
+
+                Route::prefix('people')
+                    ->as('people.')
+                    ->group(function () {
+                        Route::get('{person}/edit', 'Edit')->name('edit');
+                        Route::patch('{person}', 'Update')->name('update');
+                        Route::post('store', 'Store')->name('store');
+                        Route::delete('{person}', 'Destroy')->name('destroy');
+                    });
+            });
     });

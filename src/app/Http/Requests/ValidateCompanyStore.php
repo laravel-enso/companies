@@ -5,7 +5,7 @@ namespace LaravelEnso\Companies\app\Http\Requests;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidateCompanyRequest extends FormRequest
+class ValidateCompanyStore extends FormRequest
 {
     public function authorize()
     {
@@ -14,15 +14,9 @@ class ValidateCompanyRequest extends FormRequest
 
     public function rules()
     {
-        $nameUnique = Rule::unique('companies', 'name');
-
-        if ($this->method() === 'PATCH') {
-            $nameUnique = $nameUnique->ignore($this->route('company')->id);
-        }
-
         return [
             'mandatary_id' => 'nullable|exists:people,id',
-            'name' => ['required', 'string', $nameUnique],
+            'name' => ['required', 'string', $this->nameUnique()],
             'email' => 'email|nullable',
             'phone' => 'nullable',
             'fax' => 'nullable',
@@ -30,6 +24,7 @@ class ValidateCompanyRequest extends FormRequest
             'bank_account' => 'string|nullable',
             'obs' => 'string|nullable',
             'pays_vat' => 'required|boolean',
+            'is_tenant' => 'required|boolean'
         ];
     }
 
@@ -39,16 +34,21 @@ class ValidateCompanyRequest extends FormRequest
             $validator->after(function ($validator) {
                 $validator->errors()->add(
                     'mandatary_id',
-                    'This person is not associated with the current company'
+                    __('The selected person is not associated to this company')
                 );
             });
         }
     }
 
-    private function mandataryIsAssociated()
+    protected function mandataryIsAssociated()
     {
         return $this->route('company')->people()
             ->pluck('id')
             ->contains($this->get('mandatary_id'));
+    }
+
+    protected function nameUnique()
+    {
+        return Rule::unique('companies', 'name');
     }
 }

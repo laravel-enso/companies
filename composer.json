@@ -6,7 +6,7 @@
         "companies",
         "company-management"
     ],
-    "homepage": "https://github.com/laravel-enso/Companies",
+    "homepage": "https://github.com/laravel-enso/companies",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -19,17 +19,16 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "laravel-enso/activitylog": "2.0.*",
-        "laravel-enso/core": "4.2.*",
-        "laravel-enso/addressesmanager": "3.0.*",
-        "laravel-enso/commentsmanager": "3.0.*",
-        "laravel-enso/discussions": "2.0.*",
-        "laravel-enso/documentsmanager": "3.0.*",
-        "laravel-enso/formbuilder": "3.0.*",
-        "laravel-enso/helpers": "1.10.*",
-        "laravel-enso/structuremanager": "3.0.*",
-        "laravel-enso/trackwho": "1.7.*",
-        "laravel-enso/vuedatatable": "2.0.*"
+        "laravel-enso/core": "4.3.*",
+        "laravel-enso/addresses": "3.1.*",
+        "laravel-enso/comments": "3.1.*",
+        "laravel-enso/discussions": "2.1.*",
+        "laravel-enso/documents": "3.1.*",
+        "laravel-enso/forms": "3.1.*",
+        "laravel-enso/helpers": "1.11.*",
+        "laravel-enso/migrator": "1.0.*",
+        "laravel-enso/track-who": "1.8.*",
+        "laravel-enso/tables": "2.1.*"
     },
     "autoload": {
         "psr-4": {
@@ -39,7 +38,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelEnso\\Companies\\AppServiceProvider"
+                "LaravelEnso\\Companies\\AppServiceProvider",
+                "LaravelEnso\\Companies\\SearchServiceProvider"
             ],
             "aliases": {}
         }
