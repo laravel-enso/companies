@@ -1,6 +1,5 @@
 <?php
 
-
 namespace LaravelEnso\Companies;
 
 use LaravelEnso\Companies\app\Models\Company;

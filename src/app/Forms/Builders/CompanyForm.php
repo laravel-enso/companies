@@ -3,8 +3,8 @@
 namespace LaravelEnso\Companies\app\Forms\Builders;
 
 use Illuminate\Support\Facades\File;
-use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Forms\app\Services\Form;
+use LaravelEnso\Companies\app\Models\Company;
 
 class CompanyForm
 {

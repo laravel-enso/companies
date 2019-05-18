@@ -4,13 +4,13 @@ namespace LaravelEnso\Companies\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use LaravelEnso\People\app\Models\Person;
+use LaravelEnso\Tables\app\Traits\TableCache;
 use LaravelEnso\TrackWho\app\Traits\CreatedBy;
 use LaravelEnso\TrackWho\app\Traits\UpdatedBy;
-use LaravelEnso\Discussions\app\Traits\Discussable;
-use LaravelEnso\Tables\app\Traits\TableCache;
 use LaravelEnso\Comments\app\Traits\Commentable;
 use LaravelEnso\Addresses\app\Traits\Addressable;
 use LaravelEnso\Documents\app\Traits\Documentable;
+use LaravelEnso\Discussions\app\Traits\Discussable;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class Company extends Model

@@ -3,8 +3,8 @@
 namespace LaravelEnso\Companies\app\Tables\Builders;
 
 use Illuminate\Support\Facades\File;
-use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Tables\app\Services\Table;
+use LaravelEnso\Companies\app\Models\Company;
 
 class CompanyTable extends Table
 {
