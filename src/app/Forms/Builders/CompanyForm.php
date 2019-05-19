@@ -19,15 +19,17 @@ class CompanyForm
 
     public function create()
     {
-        return $this->form->meta('mandatary_id', 'custom', false)
-            ->meta('mandatary_id', 'placeholder', 'N/A')
-            ->readonly('mandatary_id')
+        return $this->form->meta('mandatary', 'custom', false)
+            ->meta('mandatary', 'placeholder', 'N/A')
+            ->readonly('mandatary')
             ->create();
     }
 
     public function edit(Company $company)
     {
-        return $this->form->edit($company);
+        return $this->form
+            ->value('mandatary', optional($company->mandatary())->id)
+            ->edit($company);
     }
 
     private function templatePath()

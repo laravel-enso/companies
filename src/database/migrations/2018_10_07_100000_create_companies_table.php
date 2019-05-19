@@ -11,9 +11,6 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('mandatary_id')->unsigned()->index()->nullable();
-            $table->foreign('mandatary_id')->references('id')->on('people');
-
             $table->string('name')->unique();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
@@ -35,20 +32,10 @@ class CreateCompaniesTable extends Migration
 
             $table->timestamps();
         });
-
-        Schema::table('people', function (Blueprint $table) {
-            $table->integer('company_id')->after('id')->unsigned()->index()->nullable();
-            $table->foreign('company_id')->references('id')->on('companies');
-        });
     }
 
     public function down()
     {
-        Schema::table('people', function (Blueprint $table) {
-            $table->dropForeign(['company_id']);
-            $table->dropColumn('company_id');
-        });
-
         Schema::dropIfExists('companies');
     }
 }

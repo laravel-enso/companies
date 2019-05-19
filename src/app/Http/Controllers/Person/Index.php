@@ -10,8 +10,6 @@ class Index extends Controller
 {
     public function __invoke(Company $company)
     {
-        return Resource::collection(
-            $company->people()->get()
-        );
+        return Resource::collection($company->people);
     }
 }

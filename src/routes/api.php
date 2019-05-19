@@ -22,20 +22,15 @@ Route::namespace('LaravelEnso\Companies\app\Http\Controllers')
 
         Route::namespace('Person')
             ->group(function () {
-                Route::prefix('{company}/people')
-                    ->as('people.')
-                    ->group(function () {
-                        Route::get('', 'Index')->name('index');
-                        Route::get('create', 'Create')->name('create');
-                    });
-
                 Route::prefix('people')
                     ->as('people.')
                     ->group(function () {
-                        Route::get('{person}/edit', 'Edit')->name('edit');
+                        Route::get('{company}', 'Index')->name('index');
+                        Route::get('{company}/create', 'Create')->name('create');
+                        Route::get('{company}/{person}/edit', 'Edit')->name('edit');
                         Route::patch('{person}', 'Update')->name('update');
-                        Route::post('store', 'Store')->name('store');
-                        Route::delete('{person}', 'Destroy')->name('destroy');
+                        Route::post('', 'Store')->name('store');
+                        Route::delete('{company}/{person}', 'Destroy')->name('destroy');
                     });
             });
     });

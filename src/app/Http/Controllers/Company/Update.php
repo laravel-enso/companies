@@ -12,6 +12,21 @@ class Update extends Controller
     {
         $company->update($request->validated());
 
+        $mandatary = $company->mandatary();
+
+        if (! $request->filled('mandatary') && $mandatary !== null) {
+            $company->removeMandatary($mandatary->id);
+        }
+
+        if ($request->filled('mandatary')
+            && $request->get('mandatary') !== optional($mandatary)->id) {
+            if ($mandatary !== null) {
+                $company->removeMandatary($mandatary->id);
+            }
+
+            $company->setMandatary($request->get('mandatary'));
+        }
+
         return ['message' => __('The company was successfully updated')];
     }
 }

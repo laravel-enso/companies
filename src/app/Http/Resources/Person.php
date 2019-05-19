@@ -10,7 +10,7 @@ class Person extends JsonResource
     {
         return [
             'id' => $this->id,
-            'position' => $this->position,
+            'position' => $this->pivot->position,
             'name' => $this->name,
             'phone' => $this->phone,
             'email' => $this->email,

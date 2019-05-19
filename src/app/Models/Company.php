@@ -19,20 +19,16 @@ class Company extends Model
         Documentable, UpdatedBy, TableCache;
 
     protected $fillable = [
-        'mandatary_id', 'name', 'email', 'phone', 'fax',
-        'bank', 'bank_account', 'obs', 'pays_vat', 'is_tenant'
+        'name', 'email', 'phone', 'fax', 'bank', 'bank_account',
+        'obs', 'pays_vat', 'is_tenant',
     ];
 
     protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];
 
-    public function mandatary()
-    {
-        return $this->belongsTo(Person::class, 'mandatary_id');
-    }
-
     public function people()
     {
-        return $this->hasMany(Person::class);
+        return $this->belongsToMany(Person::class)
+            ->withPivot('position');
     }
 
     public function isTenant()
@@ -43,6 +39,30 @@ class Company extends Model
     public function scopeTenant($query)
     {
         $query->whereIsTenant(true);
+    }
+
+    public function mandatary()
+    {
+        return $this->people()
+            ->withPivot('position')
+            ->wherePivot('is_mandatary', true)
+            ->first();
+    }
+
+    public function removeMandatary($mandataryId)
+    {
+        $this->people()
+            ->updateExistingPivot($mandataryId, [
+                'is_mandatary' => false,
+            ]);
+    }
+
+    public function setMandatary($mandataryId)
+    {
+        $this->people()
+            ->updateExistingPivot($mandataryId, [
+                'is_mandatary' => true,
+            ]);
     }
 
     public function delete()

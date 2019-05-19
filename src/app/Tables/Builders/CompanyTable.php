@@ -14,7 +14,10 @@ class CompanyTable extends Table
     {
         return Company::selectRaw('
             companies.*, companies.id as "dtRowId", people.name as mandatary
-        ')->leftJoin('people', 'companies.mandatary_id', '=', 'people.id');
+        ')->leftJoin('company_person', function ($join) {
+            $join->on('companies.id', '=', 'company_person.company_id')
+                    ->where('company_person.is_mandatary', true);
+        })->leftJoin('people', 'company_person.person_id', '=', 'people.id');
     }
 
     public function templatePath()

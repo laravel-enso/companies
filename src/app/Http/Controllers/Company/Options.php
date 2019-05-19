@@ -14,10 +14,15 @@ class Options extends Controller
     public function query(Request $request)
     {
         return Company::when(
-            ! $request->user()->belongsToAdminGroup()
-            && $request->user()->person->company_id,
+            ! $request->user()->belongsToAdminGroup(),
             function ($query) use ($request) {
-                $query->whereId($request->user()->person->company_id);
+                $company = $request->user()->company();
+
+                $query->when(
+                    $company !== null,
+                    function ($query) use ($company) {
+                        $query->whereId($company->id);
+                    });
             });
     }
 }

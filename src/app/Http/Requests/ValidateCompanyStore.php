@@ -15,7 +15,7 @@ class ValidateCompanyStore extends FormRequest
     public function rules()
     {
         return [
-            'mandatary_id' => 'nullable|exists:people,id',
+            'mandatary' => 'nullable|exists:people,id',
             'name' => ['required', 'string', $this->nameUnique()],
             'email' => 'email|nullable',
             'phone' => 'nullable',
@@ -24,16 +24,16 @@ class ValidateCompanyStore extends FormRequest
             'bank_account' => 'string|nullable',
             'obs' => 'string|nullable',
             'pays_vat' => 'required|boolean',
-            'is_tenant' => 'required|boolean'
+            'is_tenant' => 'required|boolean',
         ];
     }
 
     public function withValidator($validator)
     {
-        if ($this->filled('mandatary_id') && ! $this->mandataryIsAssociated()) {
+        if ($this->filled('mandatary') && ! $this->mandataryIsAssociated()) {
             $validator->after(function ($validator) {
                 $validator->errors()->add(
-                    'mandatary_id',
+                    'mandatary',
                     __('The selected person is not associated to this company')
                 );
             });
@@ -44,7 +44,7 @@ class ValidateCompanyStore extends FormRequest
     {
         return $this->route('company')->people()
             ->pluck('id')
-            ->contains($this->get('mandatary_id'));
+            ->contains($this->get('mandatary'));
     }
 
     protected function nameUnique()

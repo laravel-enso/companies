@@ -12,7 +12,7 @@
             }
         }, {
             "label": "Mandatary",
-            "name": "mandatary_id",
+            "name": "mandatary",
             "value": null,
             "meta": {
                 "custom": true,
