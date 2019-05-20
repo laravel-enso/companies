@@ -15,7 +15,7 @@ class Update extends Controller
         );
 
         return [
-            'message' => __('The Person have been successfully updated'),
+            'message' => __('The Person has been successfully updated'),
         ];
     }
 }
