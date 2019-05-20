@@ -41,6 +41,15 @@ class Company extends Model
         $query->whereIsTenant(true);
     }
 
+    public function attachPerson(int $personId, string $position = null)
+    {
+        $this->people()->attach($personId, [
+            'is_main' => false,
+            'is_mandatary' => false,
+            'position' => $position,
+        ]);
+    }
+
     public function mandatary()
     {
         return $this->people()

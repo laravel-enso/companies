@@ -16,13 +16,9 @@ class Options extends Controller
         return Company::when(
             ! $request->user()->belongsToAdminGroup(),
             function ($query) use ($request) {
-                $company = $request->user()->company();
-
-                $query->when(
-                    $company !== null,
-                    function ($query) use ($company) {
-                        $query->whereId($company->id);
-                    });
+                $query->whereIn(
+                    'id', $request->user()->person->companies()->pluck('id')
+                );
             });
     }
 }
