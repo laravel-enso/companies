@@ -4,9 +4,9 @@ use Faker\Factory;
 use Tests\TestCase;
 use LaravelEnso\Core\app\Models\User;
 use LaravelEnso\Companies\app\Models\Company;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use LaravelEnso\Forms\app\TestTraits\EditForm;
 use LaravelEnso\Forms\app\TestTraits\DestroyForm;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use LaravelEnso\Tables\app\Traits\Tests\Datatable;
 
 class CompanyTest extends TestCase

@@ -1,6 +1,5 @@
 <?php
 
-use Faker\Factory;
 use Tests\TestCase;
 use LaravelEnso\Core\app\Models\User;
 use LaravelEnso\People\app\Models\Person;
@@ -26,7 +25,7 @@ class CompanyPeopleTest extends TestCase
             ->create();
 
         $this->testModel = factory(Person::class)
-            ->make();
+            ->create();
     }
 
     /** @test */
@@ -42,7 +41,11 @@ class CompanyPeopleTest extends TestCase
     {
         $this->setCompany();
 
-        $this->get(route('administration.companies.people.edit', [$this->testModel->id], false))
+        $this->get(route(
+                'administration.companies.people.edit',
+                [$this->company->id, $this->testModel->id],
+                false)
+            )
             ->assertStatus(200)
             ->assertJsonStructure(['form']);
     }
@@ -50,34 +53,37 @@ class CompanyPeopleTest extends TestCase
     /** @test */
     public function can_associate_person()
     {
-        $this->testModel->save();
         $this->testModel->company_id = $this->company->id;
 
         $response = $this->post(
             route('administration.companies.people.store', [], false),
-            $this->testModel->toArray()
+            [
+                'company_id' => $this->company->id,
+                'id' => $this->testModel->id,
+            ]
         );
-
-        Person::whereName($this->testModel->name)
-            ->first();
 
         $response->assertStatus(200)
             ->assertJsonStructure(['message']);
+
+        $this->assertTrue($this->testModel->fresh()->companies()->first()->id === $this->company->id);
     }
 
     /** @test */
     public function can_update_person()
     {
         $this->setCompany();
-        $this->testModel->position = 'updated';
 
         $this->patch(
-            route('administration.companies.people.update', [$this->testModel->id], false),
-            $this->testModel->toArray()
+            route('administration.companies.people.update', [$this->testModel->id], false), [
+                'company_id' => $this->company->id,
+                'id' => $this->testModel->id,
+                'position' => 'updated',
+            ]
         )->assertStatus(200)
         ->assertJsonStructure(['message']);
 
-        $this->assertEquals('updated', $this->testModel->fresh()->position);
+        $this->assertEquals('updated', $this->testModel->fresh()->companies()->first()->pivot->position);
     }
 
     /** @test */
@@ -98,7 +104,11 @@ class CompanyPeopleTest extends TestCase
     {
         $this->setCompany();
 
-        $this->delete(route('administration.companies.people.destroy', [$this->testModel->id], false))
+        $this->delete(route(
+                'administration.companies.people.destroy',
+                [$this->company->id, $this->testModel->id],
+                false)
+            )
             ->assertStatus(200);
 
         $this->assertNull($this->testModel->fresh()->company_id);
@@ -106,7 +116,9 @@ class CompanyPeopleTest extends TestCase
 
     public function setCompany()
     {
-        $this->testModel->company_id = $this->company->id;
-        $this->testModel->save();
+        $this->testModel->companies()->attach($this->company->id, [
+            'is_main' => false,
+            'is_mandatary' => false,
+        ]);
     }
 }
