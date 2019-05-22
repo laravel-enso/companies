@@ -22,7 +22,7 @@
         }, {
             "label": "Position",
             "name": "position",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "text"

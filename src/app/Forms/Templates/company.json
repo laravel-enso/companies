@@ -5,7 +5,7 @@
         "fields": [{
             "label": "Name",
             "name": "name",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "text"
@@ -33,7 +33,7 @@
         }, {
             "label": "Phone Number",
             "name": "phone",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "text"
@@ -41,7 +41,7 @@
         }, {
             "label": "Fax Number",
             "name": "fax",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "text"
@@ -53,7 +53,7 @@
             "column": 4,
             "label": "Bank",
             "name": "bank",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "text"
@@ -62,7 +62,7 @@
             "column": 4,
             "label": "Bank Account",
             "name": "bank_account",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "text"
