@@ -1,6 +1,5 @@
 <?php
 
-use Faker\Factory;
 use Tests\TestCase;
 use LaravelEnso\Core\app\Models\User;
 use LaravelEnso\Companies\app\Models\Company;
