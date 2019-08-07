@@ -8,7 +8,7 @@ use LaravelEnso\Companies\app\Models\Company;
 
 class CompanyForm
 {
-    private const TemplatePath = __DIR__.'/../Templates/company.json';
+    protected const TemplatePath = __DIR__.'/../Templates/company.json';
 
     private $form;
 
