@@ -8,7 +8,7 @@ use LaravelEnso\Companies\app\Models\Company;
 
 class CompanyTable extends Table
 {
-    const TemplatePath = __DIR__.'/../Templates/companies.json';
+    protected const TemplatePath = __DIR__.'/../Templates/companies.json';
 
     public function query()
     {
