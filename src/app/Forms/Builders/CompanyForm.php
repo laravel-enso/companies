@@ -40,6 +40,6 @@ class CompanyForm
 
         return $file && File::exists($templatePath)
             ? $templatePath
-            : self::TemplatePath;
+            : static::TemplatePath;
     }
 }
