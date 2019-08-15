@@ -11,9 +11,16 @@ class Options extends Controller
 {
     use OptionsBuilder;
 
+    private $company;
+
+    public function __construct(Company $company)
+    {
+        $this->company = $company;
+    }
+
     public function query(Request $request)
     {
-        return Company::when(
+        return $this->company::when(
             ! $request->user()->belongsToAdminGroup(),
             function ($query) use ($request) {
                 $query->whereIn(
