@@ -7,9 +7,10 @@ use LaravelEnso\People\app\Models\Person;
 
 class PersonForm
 {
-    private const TemplatePath = __DIR__.'/../Templates/person.json';
+    protected const TemplatePath = __DIR__.'/../Templates/person.json';
 
-    private $form;
+    protected $form;
+
     private $company;
 
     public function __construct()

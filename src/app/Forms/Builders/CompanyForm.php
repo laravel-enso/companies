@@ -10,7 +10,7 @@ class CompanyForm
 {
     protected const TemplatePath = __DIR__.'/../Templates/company.json';
 
-    private $form;
+    protected $form;
 
     public function __construct()
     {
