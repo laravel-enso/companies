@@ -23,6 +23,30 @@
     }, {
         "columns": 3,
         "fields": [{
+            "label": "Status",
+            "name": "status",
+            "value": null,
+            "meta": {
+                "type": "select",
+                "options": "LaravelEnso\\Companies\\app\\Enums\\CompanyStatuses"
+            }
+        }, {
+            "label": "Fiscal Code",
+            "name": "fiscal_code",
+            "value": null,
+            "meta": {
+                "type": "input",
+                "content": "text"
+            }
+        }, {
+            "label": "Registry of Commerce",
+            "name": "reg_com_nr",
+            "value": null,
+            "meta": {
+                "type": "input",
+                "content": "text"
+            }
+        }, {
             "label": "Email",
             "name": "email",
             "value": null,
