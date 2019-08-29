@@ -21,7 +21,7 @@ class Company extends Model
 
     protected $fillable = [
         'name', 'email', 'phone', 'fax', 'bank', 'bank_account',
-        'obs', 'pays_vat', 'is_tenant',
+        'obs', 'pays_vat', 'is_tenant', 'fiscal_code', 'reg_com_nr', 'status',
     ];
 
     protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];

@@ -12,6 +12,8 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
 
             $table->string('name')->unique();
+            $table->string('reg_com_nr')->nullable();
+            $table->string('fiscal_code')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('fax')->nullable();
@@ -22,6 +24,7 @@ class CreateCompaniesTable extends Migration
             $table->text('obs')->nullable();
 
             $table->string('pays_vat')->boolean();
+            $table->tinyInteger('status')->nullable();
             $table->string('is_tenant')->boolean();
 
             $table->integer('created_by')->unsigned()->index()->nullable();
