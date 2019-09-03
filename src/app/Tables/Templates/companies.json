@@ -9,6 +9,11 @@
         "data": "companies.name",
         "meta": ["searchable", "sortable"]
     }, {
+        "label": "Fiscal Code",
+        "name": "fiscal_code",
+        "data": "companies.fiscal_code",
+        "meta": ["searchable", "sortable"]
+    }, {
         "label": "Email",
         "name": "email",
         "data": "companies.email",
@@ -38,6 +43,12 @@
         "name": "pays_vat",
         "data": "companies.pays_vat",
         "meta": ["boolean", "sortable"]
+    }, {
+        "label": "Status",
+        "name": "status",
+        "data": "companies.status",
+        "meta": ["searchable", "sortable"],
+        "enum": "LaravelEnso\\Companies\\app\\Enums\\CompanyStatuses"
     }, {
         "label": "Tenant",
         "name": "is_tenant",
