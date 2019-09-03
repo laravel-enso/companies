@@ -11,13 +11,14 @@ use LaravelEnso\Comments\app\Traits\Commentable;
 use LaravelEnso\Addresses\app\Traits\Addressable;
 use LaravelEnso\Documents\app\Traits\Documentable;
 use LaravelEnso\Discussions\app\Traits\Discussable;
+use LaravelEnso\DynamicMethods\app\Traits\Relations;
 use LaravelEnso\Rememberable\app\Traits\Rememberable;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class Company extends Model
 {
-    use Addressable, Commentable, CreatedBy, Discussable,
-        Documentable, UpdatedBy, Rememberable, TableCache;
+    use Addressable, Commentable, CreatedBy, Discussable, Documentable,
+        Relations, Rememberable, TableCache, UpdatedBy;
 
     protected $fillable = [
         'name', 'email', 'phone', 'fax', 'bank', 'bank_account', 'obs',
