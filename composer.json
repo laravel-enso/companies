@@ -19,17 +19,17 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "laravel-enso/core": "4.3.*",
-        "laravel-enso/addresses": "3.1.*",
-        "laravel-enso/comments": "3.1.*",
-        "laravel-enso/discussions": "2.1.*",
-        "laravel-enso/documents": "3.1.*",
-        "laravel-enso/forms": "3.1.*",
+        "laravel-enso/core": "4.4.*",
+        "laravel-enso/addresses": "3.2.*",
+        "laravel-enso/comments": "3.2.*",
+        "laravel-enso/enums": "1.0.*",
+        "laravel-enso/discussions": "2.2.*",
+        "laravel-enso/documents": "3.2.*",
+        "laravel-enso/forms": "3.2.*",
         "laravel-enso/helpers": "1.11.*",
         "laravel-enso/migrator": "1.0.*",
         "laravel-enso/track-who": "1.8.*",
-        "laravel-enso/tables": "2.1.*",
-        "laravel-enso/enums": "1.0.*"
+        "laravel-enso/tables": "2.2.*"
     },
     "autoload": {
         "psr-4": {

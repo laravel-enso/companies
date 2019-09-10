@@ -12,7 +12,7 @@ class Destroy extends Controller
     public function __invoke(Company $company, Person $person)
     {
         if (optional($company->mandatary())->id === $person->id
-            && $company->people()->count() > 1) {
+            && $company->people()->exists()) {
             throw new CompanyMandataryException(__(
                 'You cannot dissociate the mandatary unless is the only one attached on this company'
             ));

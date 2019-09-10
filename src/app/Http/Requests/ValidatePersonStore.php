@@ -22,6 +22,6 @@ class ValidatePersonStore extends ValidatePersonUpdate
         return Person::whereId($this->get('id'))
             ->whereHas('companies', function ($companies) {
                 $companies->whereId($this->get('company_id'));
-            })->first() !== null;
+            })->exists();
     }
 }

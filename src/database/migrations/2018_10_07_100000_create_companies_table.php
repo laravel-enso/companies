@@ -11,7 +11,8 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('name')->unique();
+            $table->string('name')->unique()->index();
+
             $table->string('reg_com_nr')->nullable();
             $table->string('fiscal_code')->nullable();
             $table->string('email')->nullable();
@@ -24,7 +25,7 @@ class CreateCompaniesTable extends Migration
             $table->text('obs')->nullable();
 
             $table->boolean('pays_vat')->nullable();
-            $table->tinyInteger('status')->nullable();
+            $table->tinyInteger('status');
             $table->boolean('is_tenant')->nullable();
 
             $table->integer('created_by')->unsigned()->index()->nullable();

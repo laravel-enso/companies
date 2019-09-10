@@ -11,9 +11,6 @@ class Edit extends Controller
 {
     public function __invoke(Company $company, Person $person, PersonForm $form)
     {
-        return [
-            'form' => $form->company($company)
-                ->edit($person),
-        ];
+        return ['form' => $form->company($company)->edit($person)];
     }
 }

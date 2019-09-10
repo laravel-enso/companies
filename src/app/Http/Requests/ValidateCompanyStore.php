@@ -34,7 +34,7 @@ class ValidateCompanyStore extends FormRequest
 
     public function withValidator($validator)
     {
-        if ($this->filled('mandatary') && ! $this->mandataryIsAssociated()) {
+        if ($this->filled('mandatary') && $this->mandataryIsNotAssociated()) {
             $validator->after(function ($validator) {
                 $validator->errors()->add(
                     'mandatary',
@@ -44,11 +44,10 @@ class ValidateCompanyStore extends FormRequest
         }
     }
 
-    protected function mandataryIsAssociated()
+    protected function mandataryIsNotAssociated()
     {
-        return $this->route('company')->people()
-            ->pluck('id')
-            ->contains($this->get('mandatary'));
+        return ! $this->route('company')->people()
+            ->pluck('id')->contains($this->get('mandatary'));
     }
 
     protected function nameUnique()

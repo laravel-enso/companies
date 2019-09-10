@@ -13,8 +13,6 @@ class Store extends Controller
         Company::find($request->get('company_id'))
             ->attachPerson($request->get('id'), $request->get('position'));
 
-        return [
-            'message' => __('The Person was successfully created'),
-        ];
+        return ['message' => __('The Person was successfully created')];
     }
 }

@@ -14,14 +14,14 @@ class CompanyForm
 
     public function __construct()
     {
-        $this->form = new Form($this->templatePath());
+        $this->form = new Form(static::TemplatePath);
     }
 
     public function create()
     {
-        return $this->form->meta('mandatary', 'custom', false)
+        return $this->form->readonly('mandatary')
+            ->meta('mandatary', 'custom', false)
             ->meta('mandatary', 'placeholder', 'N/A')
-            ->readonly('mandatary')
             ->create();
     }
 
@@ -30,16 +30,5 @@ class CompanyForm
         return $this->form
             ->value('mandatary', optional($company->mandatary())->id)
             ->edit($company);
-    }
-
-    private function templatePath()
-    {
-        $file = config('enso.companies.formTemplate');
-
-        $templatePath = base_path($file);
-
-        return $file && File::exists($templatePath)
-            ? $templatePath
-            : static::TemplatePath;
     }
 }

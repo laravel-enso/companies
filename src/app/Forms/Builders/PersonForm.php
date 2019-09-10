@@ -10,8 +10,7 @@ class PersonForm
     protected const TemplatePath = __DIR__.'/../Templates/person.json';
 
     protected $form;
-
-    private $company;
+    protected $company;
 
     public function __construct()
     {
@@ -27,12 +26,8 @@ class PersonForm
 
     public function edit(Person $person)
     {
-        return $this->form
-            ->value(
-                'position', $person->companies()
-                    ->wherePivot('company_id', $this->company->id)
-                    ->first()->pivot->position
-            )->actions('update')
+        return $this->form->actions('update')
+            ->value('position', $person->position($this->company))
             ->edit($person);
     }
 

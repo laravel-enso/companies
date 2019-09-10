@@ -14,6 +14,11 @@
         "data": "companies.fiscal_code",
         "meta": ["searchable", "sortable"]
     }, {
+        "label": "Mandatary",
+        "name": "mandatary",
+        "data": "people.name",
+        "meta": ["searchable", "sortable"]
+    }, {
         "label": "Email",
         "name": "email",
         "data": "companies.email",
@@ -29,11 +34,6 @@
         "data": "companies.fax",
         "meta": ["searchable", "sortable"]
     }, {
-        "label": "Mandatary",
-        "name": "mandatary",
-        "data": "people.name",
-        "meta": ["searchable", "sortable"]
-    }, {
         "label": "Bank",
         "name": "bank",
         "data": "companies.bank",
@@ -47,8 +47,13 @@
         "label": "Status",
         "name": "status",
         "data": "companies.status",
-        "meta": ["searchable", "sortable"],
+        "meta": ["sortable", "slot"],
         "enum": "LaravelEnso\\Companies\\app\\Enums\\CompanyStatuses"
+    }, {
+        "label": "Status Value",
+        "name": "statusValue",
+        "data": "statusValue",
+        "meta": ["rogue", "notExportable"]
     }, {
         "label": "Tenant",
         "name": "is_tenant",

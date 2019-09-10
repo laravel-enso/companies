@@ -10,9 +10,7 @@ class Store extends Controller
 {
     public function __invoke(ValidateCompanyStore $request, Company $company)
     {
-        tap($company)
-            ->fill($request->validated())
-            ->save();
+        $company->fill($request->validated())->save();
 
         return [
             'message' => __('The company was successfully created'),

@@ -8,26 +8,17 @@ use LaravelEnso\Companies\app\Models\Company;
 
 class CompanyTable extends Table
 {
-    protected const TemplatePath = __DIR__.'/../Templates/companies.json';
+    protected $templatePath = __DIR__.'/../Templates/companies.json';
 
     public function query()
     {
         return Company::selectRaw('
-            companies.*, companies.id as "dtRowId", people.name as mandatary
+            companies.id, companies.name, companies.fiscal_code, people.name as mandatary,
+            companies.email, companies.phone, companies.fax, companies.bank, companies.pays_vat,
+            companies.status, companies.status as statusValue, companies.is_tenant, companies.created_at
         ')->leftJoin('company_person', function ($join) {
             $join->on('companies.id', '=', 'company_person.company_id')
-                    ->where('company_person.is_mandatary', true);
+                ->where('company_person.is_mandatary', true);
         })->leftJoin('people', 'company_person.person_id', '=', 'people.id');
-    }
-
-    public function templatePath()
-    {
-        $file = config('enso.companies.tableTemplate');
-
-        $templatePath = base_path($file);
-
-        return $file && File::exists($templatePath)
-            ? $templatePath
-            : static::TemplatePath;
     }
 }

@@ -14,8 +14,6 @@ class Update extends Controller
             $request->get('company_id'), $request->only('position')
         );
 
-        return [
-            'message' => __('The Person has been successfully updated'),
-        ];
+        return ['message' => __('The Person has been successfully updated')];
     }
 }

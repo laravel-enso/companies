@@ -13,12 +13,12 @@ use LaravelEnso\Documents\app\Traits\Documentable;
 use LaravelEnso\Discussions\app\Traits\Discussable;
 use LaravelEnso\DynamicMethods\app\Traits\Relations;
 use LaravelEnso\Rememberable\app\Traits\Rememberable;
-use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
+use LaravelEnso\Helpers\app\Traits\AvoidsDeletionConflicts;
 
 class Company extends Model
 {
-    use Addressable, Commentable, CreatedBy, Discussable, Documentable,
-        Relations, Rememberable, TableCache, UpdatedBy;
+    use Addressable, AvoidsDeletionConflicts, Commentable, CreatedBy, Discussable,
+        Documentable, Relations, Rememberable, TableCache, UpdatedBy;
 
     protected $fillable = [
         'name', 'email', 'phone', 'fax', 'bank', 'bank_account', 'obs',
@@ -43,6 +43,14 @@ class Company extends Model
         $query->whereIsTenant(true);
     }
 
+    public function mandatary()
+    {
+        return $this->people()
+            ->withPivot('position')
+            ->wherePivot('is_mandatary', true)
+            ->first();
+    }
+
     public function attachPerson(int $personId, string $position = null)
     {
         $this->people()->attach($personId, [
@@ -52,46 +60,13 @@ class Company extends Model
         ]);
     }
 
-    public function mandatary()
+    public function updateMandatary(?int $mandataryId)
     {
-        return $this->people()
-            ->withPivot('position')
-            ->wherePivot('is_mandatary', true)
-            ->first();
-    }
-
-    public function removeMandatary($mandataryId)
-    {
-        $this->people()
-            ->updateExistingPivot($mandataryId, [
-                'is_mandatary' => false,
-            ]);
-    }
-
-    public function setMandatary($mandataryId)
-    {
-        $this->people()
-            ->updateExistingPivot($mandataryId, [
-                'is_mandatary' => true,
-            ]);
-    }
-
-    public function delete()
-    {
-        if ($this->isTenant()) {
-            throw new ConflictHttpException(__(
-                'The company is a tenant and cannot be deleted'
-            ));
-        }
-
-        try {
-            parent::delete();
-        } catch (\Exception $e) {
-            throw new ConflictHttpException(__(
-                'The company is assigned to resources in the system and cannot be deleted'
-            ));
-        }
-
-        return ['message' => __('The company was successfully deleted')];
+        $pivotIds = $this->people->pluck('id')
+            ->reduce(function($pivot, $value) use ($mandataryId) {
+                return $pivot->put($value, ['is_mandatary' => $value === $mandataryId]);
+            }, collect())->toArray();
+           
+        $this->people()->sync($pivotIds);
     }
 }
