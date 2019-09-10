@@ -2,7 +2,6 @@
 
 namespace LaravelEnso\Companies\app\Tables\Builders;
 
-use Illuminate\Support\Facades\File;
 use LaravelEnso\Tables\app\Services\Table;
 use LaravelEnso\Companies\app\Models\Company;
 
