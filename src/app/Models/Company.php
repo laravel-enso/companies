@@ -63,10 +63,10 @@ class Company extends Model
     public function updateMandatary(?int $mandataryId)
     {
         $pivotIds = $this->people->pluck('id')
-            ->reduce(function($pivot, $value) use ($mandataryId) {
+            ->reduce(function ($pivot, $value) use ($mandataryId) {
                 return $pivot->put($value, ['is_mandatary' => $value === $mandataryId]);
             }, collect())->toArray();
-           
+
         $this->people()->sync($pivotIds);
     }
 }
