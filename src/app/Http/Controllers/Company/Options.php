@@ -12,5 +12,5 @@ class Options extends Controller
 
     protected $model = Company::class;
 
-    protected $queryAttributes = ['name', 'fiscal_code'];
+    protected $queryAttributes = ['name', 'fiscal_code', 'phone'];
 }
