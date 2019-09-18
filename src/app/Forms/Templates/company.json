@@ -33,7 +33,7 @@
         }, {
             "label": "Fiscal Code",
             "name": "fiscal_code",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "text"
@@ -41,7 +41,7 @@
         }, {
             "label": "Registry of Commerce",
             "name": "reg_com_nr",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "text"
@@ -49,7 +49,7 @@
         }, {
             "label": "Email",
             "name": "email",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "input",
                 "content": "email"
@@ -115,7 +115,7 @@
         "fields": [{
             "label": "Notes",
             "name": "obs",
-            "value": null,
+            "value": "",
             "meta": {
                 "type": "textarea",
                 "rows": 3
