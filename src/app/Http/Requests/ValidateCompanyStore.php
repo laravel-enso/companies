@@ -18,7 +18,7 @@ class ValidateCompanyStore extends FormRequest
         return [
             'mandatary' => 'nullable|exists:people,id',
             'name' => ['required', 'string', $this->nameUnique()],
-            'status' => 'nullable|numeric|in:'.CompanyStatuses::keys()->implode(','),
+            'status' => 'required|numeric|in:'.CompanyStatuses::keys()->implode(','),
             'fiscal_code' => 'string|nullable',
             'reg_com_nr' => 'string|nullable',
             'email' => 'email|nullable',
