@@ -28,6 +28,7 @@ class PersonForm
     {
         return $this->form->actions('update')
             ->value('position', $person->position($this->company))
+            ->readonly('id')
             ->edit($person);
     }
 
