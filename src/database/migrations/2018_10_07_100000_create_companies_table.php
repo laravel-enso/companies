@@ -35,6 +35,9 @@ class CreateCompaniesTable extends Migration
             $table->foreign('updated_by')->references('id')->on('users');
 
             $table->timestamps();
+
+            $table->unique('reg_com_nr');
+            $table->unique('fiscal_code');
         });
     }
 
