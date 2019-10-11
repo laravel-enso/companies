@@ -3,8 +3,8 @@
 namespace LaravelEnso\Companies\app\Http\Controllers\Company;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyRequest;
 use LaravelEnso\Companies\app\Models\Company;
+use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyRequest;
 
 class Store extends Controller
 {

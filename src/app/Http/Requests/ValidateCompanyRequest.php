@@ -2,8 +2,8 @@
 
 namespace LaravelEnso\Companies\app\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 use LaravelEnso\Companies\app\Enums\CompanyStatuses;
 
 class ValidateCompanyRequest extends FormRequest
@@ -67,5 +67,4 @@ class ValidateCompanyRequest extends FormRequest
         return Rule::unique('companies', 'reg_com_nr')
             ->ignore(optional($this->route('company'))->id);
     }
-
 }
