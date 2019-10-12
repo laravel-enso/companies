@@ -26,7 +26,7 @@
         "laravel-enso/discussions": "2.2.*",
         "laravel-enso/documents": "3.2.*",
         "laravel-enso/forms": "3.2.*",
-        "laravel-enso/helpers": "1.2.*",
+        "laravel-enso/helpers": "1.13.*",
         "laravel-enso/migrator": "1.0.*",
         "laravel-enso/rememberable": "2.1.*",
         "laravel-enso/track-who": "1.8.*",
