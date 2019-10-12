@@ -4,6 +4,7 @@ namespace LaravelEnso\Companies\app\Forms\Builders;
 
 use LaravelEnso\Forms\app\Services\Form;
 use LaravelEnso\Companies\app\Models\Company;
+use LaravelEnso\Companies\app\Enums\CompanyStatuses;
 
 class CompanyForm
 {
@@ -19,6 +20,7 @@ class CompanyForm
     public function create()
     {
         return $this->form->readonly('mandatary')
+            ->value('status', CompanyStatuses::Active)
             ->meta('mandatary', 'custom', false)
             ->meta('mandatary', 'placeholder', 'N/A')
             ->create();

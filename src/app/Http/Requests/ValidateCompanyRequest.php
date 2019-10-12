@@ -6,7 +6,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use LaravelEnso\Companies\app\Enums\CompanyStatuses;
 
-class ValidateCompanyStore extends FormRequest
+class ValidateCompanyRequest extends FormRequest
 {
     public function authorize()
     {
@@ -52,6 +52,7 @@ class ValidateCompanyStore extends FormRequest
 
     protected function nameUnique()
     {
-        return Rule::unique('companies', 'name');
+        return Rule::unique('companies', 'name')
+            ->ignore(optional($this->route('company'))->id);
     }
 }

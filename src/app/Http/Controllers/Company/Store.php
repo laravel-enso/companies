@@ -4,11 +4,11 @@ namespace LaravelEnso\Companies\app\Http\Controllers\Company;
 
 use Illuminate\Routing\Controller;
 use LaravelEnso\Companies\app\Models\Company;
-use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyStore;
+use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyRequest;
 
 class Store extends Controller
 {
-    public function __invoke(ValidateCompanyStore $request, Company $company)
+    public function __invoke(ValidateCompanyRequest $request, Company $company)
     {
         $company->fill($request->validated())->save();
 
