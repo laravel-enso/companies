@@ -19,8 +19,8 @@ class ValidateCompanyRequest extends FormRequest
             'mandatary' => 'nullable|exists:people,id',
             'name' => ['required', 'string', $this->nameUnique()],
             'status' => 'required|numeric|in:'.CompanyStatuses::keys()->implode(','),
-            'fiscal_code' => 'string|nullable',
-            'reg_com_nr' => 'string|nullable',
+            'fiscal_code' => ['string', 'nullable', $this->fiscalCodeUnique()],
+            'reg_com_nr' => ['string', 'nullable', $this->regComNrUnique()],
             'email' => 'email|nullable',
             'phone' => 'nullable',
             'fax' => 'nullable',
@@ -53,6 +53,18 @@ class ValidateCompanyRequest extends FormRequest
     protected function nameUnique()
     {
         return Rule::unique('companies', 'name')
+            ->ignore(optional($this->route('company'))->id);
+    }
+
+    protected function fiscalCodeUnique()
+    {
+        return Rule::unique('companies', 'fiscal_code')
+            ->ignore(optional($this->route('company'))->id);
+    }
+
+    protected function regComNrUnique()
+    {
+        return Rule::unique('companies', 'reg_com_nr')
             ->ignore(optional($this->route('company'))->id);
     }
 }
