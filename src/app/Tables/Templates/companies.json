@@ -2,7 +2,7 @@
     "routePrefix": "administration.companies",
     "crtNo": true,
     "buttons": ["excel", "create", "edit", "destroy"],
-    "cache": true,
+    "countCache": true,
     "columns": [{
         "label": "Name",
         "name": "name",
@@ -27,16 +27,6 @@
         "label": "Phone",
         "name": "phone",
         "data": "companies.phone",
-        "meta": ["searchable", "sortable"]
-    }, {
-        "label": "Fax",
-        "name": "fax",
-        "data": "companies.fax",
-        "meta": ["searchable", "sortable"]
-    }, {
-        "label": "Bank",
-        "name": "bank",
-        "data": "companies.bank",
         "meta": ["searchable", "sortable"]
     }, {
         "label": "Pays VAT",
