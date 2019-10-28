@@ -14,16 +14,7 @@ Company management dependency for [Laravel Enso](https://github.com/laravel-enso
 
 <sup>click on the photo to view a large size screenshot</sup>
 
-## Features
-
-- provides a common functionality for managing companies within the Enso ecosystem
-- integrates with the [People](https://github.com/laravel-enso/People) package
-- can be reused and integrated with other modules which might deal with companies (e.g. suppliers ) 
-or even other entities, such as people (e.g. clients)
-- a `CompanyFactory` is included by default in the package
-- the companies server-side select functionality is also included by default
-
-### Configuration & Usage
+### Installation, Configuration & Usage
 
 Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/companies.html)
 
