@@ -29,7 +29,7 @@
         "laravel-enso/migrator": "1.0.*",
         "laravel-enso/rememberable": "2.1.*",
         "laravel-enso/track-who": "1.8.*",
-        "laravel-enso/tables": "2.2.*"
+        "laravel-enso/tables": "3.1.*"
     },
     "autoload": {
         "psr-4": {
