@@ -2,8 +2,8 @@
 
 namespace LaravelEnso\Companies\app\Http\Requests;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use LaravelEnso\Companies\app\Enums\CompanyStatuses;
 
 class ValidateCompanyRequest extends FormRequest

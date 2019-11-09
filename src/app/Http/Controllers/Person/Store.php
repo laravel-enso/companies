@@ -3,8 +3,8 @@
 namespace LaravelEnso\Companies\app\Http\Controllers\Person;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Http\Requests\ValidatePersonStore;
+use LaravelEnso\Companies\app\Models\Company;
 
 class Store extends Controller
 {

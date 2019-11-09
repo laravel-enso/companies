@@ -3,17 +3,17 @@
 namespace LaravelEnso\Companies\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\Addresses\app\Traits\Addressable;
+use LaravelEnso\Comments\app\Traits\Commentable;
+use LaravelEnso\Discussions\app\Traits\Discussable;
+use LaravelEnso\Documents\app\Traits\Documentable;
+use LaravelEnso\DynamicMethods\app\Traits\Relations;
+use LaravelEnso\Helpers\app\Traits\AvoidsDeletionConflicts;
 use LaravelEnso\People\app\Models\Person;
+use LaravelEnso\Rememberable\app\Traits\Rememberable;
 use LaravelEnso\Tables\app\Traits\TableCache;
 use LaravelEnso\TrackWho\app\Traits\CreatedBy;
 use LaravelEnso\TrackWho\app\Traits\UpdatedBy;
-use LaravelEnso\Comments\app\Traits\Commentable;
-use LaravelEnso\Addresses\app\Traits\Addressable;
-use LaravelEnso\Documents\app\Traits\Documentable;
-use LaravelEnso\Discussions\app\Traits\Discussable;
-use LaravelEnso\DynamicMethods\app\Traits\Relations;
-use LaravelEnso\Rememberable\app\Traits\Rememberable;
-use LaravelEnso\Helpers\app\Traits\AvoidsDeletionConflicts;
 
 class Company extends Model
 {

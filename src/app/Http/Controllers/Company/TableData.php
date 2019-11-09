@@ -3,8 +3,8 @@
 namespace LaravelEnso\Companies\app\Http\Controllers\Company;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\Tables\app\Traits\Data;
 use LaravelEnso\Companies\app\Tables\Builders\CompanyTable;
+use LaravelEnso\Tables\app\Traits\Data;
 
 class TableData extends Controller
 {

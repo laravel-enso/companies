@@ -3,8 +3,8 @@
 namespace LaravelEnso\Companies\app\Http\Controllers\Person;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\People\app\Models\Person;
 use LaravelEnso\Companies\app\Http\Requests\ValidatePersonUpdate;
+use LaravelEnso\People\app\Models\Person;
 
 class Update extends Controller
 {

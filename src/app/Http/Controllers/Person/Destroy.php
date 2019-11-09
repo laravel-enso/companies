@@ -3,9 +3,9 @@
 namespace LaravelEnso\Companies\app\Http\Controllers\Person;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\People\app\Models\Person;
-use LaravelEnso\Companies\app\Models\Company;
 use LaravelEnso\Companies\app\Exceptions\CompanyException;
+use LaravelEnso\Companies\app\Models\Company;
+use LaravelEnso\People\app\Models\Person;
 
 class Destroy extends Controller
 {
