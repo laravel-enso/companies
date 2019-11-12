@@ -13,9 +13,18 @@ class CompanyTable implements Table
     public function query(): Builder
     {
         return Company::selectRaw('
-            companies.id, companies.name, companies.fiscal_code, people.name as mandatary,
-            companies.email, companies.bank, companies.pays_vat, companies.status,
-            companies.status as statusValue, companies.is_tenant, companies.created_at
+            companies.id, 
+            companies.name, 
+            companies.fiscal_code, 
+            people.name as mandatary,
+            companies.email, 
+            companies.bank, 
+            companies.pays_vat, 
+            companies.phone, 
+            companies.status,
+            companies.status as statusValue, 
+            companies.is_tenant, 
+            companies.created_at
         ')->leftJoin('company_person', function ($join) {
             $join->on('companies.id', '=', 'company_person.company_id')
                 ->where('company_person.is_mandatary', true);
