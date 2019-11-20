@@ -3,7 +3,6 @@
 namespace LaravelEnso\Companies\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
 use LaravelEnso\Addresses\app\Traits\Addressable;
 use LaravelEnso\Comments\app\Traits\Commentable;
 use LaravelEnso\Discussions\app\Traits\Discussable;
@@ -33,7 +32,7 @@ class Company extends Model
         return $this->belongsToMany(Person::class)
             ->withPivot('position');
     }
-    
+
     public static function owner()
     {
         return App::make(static::class)->cacheGet(config('enso.config.ownerCompanyId'));
