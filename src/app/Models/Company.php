@@ -36,7 +36,7 @@ class Company extends Model
     
     public static function owner()
     {
-        return static::cacheGet(config('enso.config.ownerCompanyId'));
+        return App::make(static::class)->cacheGet(config('enso.config.ownerCompanyId'));
     }
 
     public function isTenant()
