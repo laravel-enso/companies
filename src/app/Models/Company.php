@@ -3,6 +3,7 @@
 namespace LaravelEnso\Companies\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 use LaravelEnso\Addresses\app\Traits\Addressable;
 use LaravelEnso\Comments\app\Traits\Commentable;
 use LaravelEnso\Discussions\app\Traits\Discussable;
