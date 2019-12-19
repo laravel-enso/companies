@@ -18,6 +18,7 @@
         }
     ],
     "require": {
+        "php": ">=7.4.0",
         "laravel-enso/core": "4.6.*",
         "laravel-enso/addresses": "3.3.*",
         "laravel-enso/comments": "3.2.*",

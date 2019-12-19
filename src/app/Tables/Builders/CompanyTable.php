@@ -25,10 +25,10 @@ class CompanyTable implements Table
             companies.status as statusValue, 
             companies.is_tenant, 
             companies.created_at
-        ')->leftJoin('company_person', function ($join) {
+        ')->leftJoin('company_person', fn ($join) => (
             $join->on('companies.id', '=', 'company_person.company_id')
-                ->where('company_person.is_mandatary', true);
-        })->leftJoin('people', 'company_person.person_id', '=', 'people.id');
+                ->where('company_person.is_mandatary', true)
+        ))->leftJoin('people', 'company_person.person_id', '=', 'people.id');
     }
 
     public function templatePath(): string
