@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Exceptions;
+namespace LaravelEnso\Companies\App\Exceptions;
 
-use LaravelEnso\Helpers\app\Exceptions\EnsoException;
+use LaravelEnso\Helpers\App\Exceptions\EnsoException;
 
-class CompanyException extends EnsoException
+class Company extends EnsoException
 {
     public static function dissociateMandatary()
     {

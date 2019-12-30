@@ -1,14 +1,14 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Enums;
+namespace LaravelEnso\Companies\App\Enums;
 
-use LaravelEnso\Enums\app\Services\Enum;
+use LaravelEnso\Enums\App\Services\Enum;
 
 class CompanyStatuses extends Enum
 {
-    const Active = 1;
-    const Overdue = 2;
-    const Litigation = 3;
-    const Insolvent = 4;
-    const Deregistered = 5;
+    public const Active = 1;
+    public const Overdue = 2;
+    public const Litigation = 3;
+    public const Insolvent = 4;
+    public const Deregistered = 5;
 }

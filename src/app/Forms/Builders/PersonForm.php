@@ -1,16 +1,17 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Forms\Builders;
+namespace LaravelEnso\Companies\App\Forms\Builders;
 
-use LaravelEnso\Forms\app\Services\Form;
-use LaravelEnso\People\app\Models\Person;
+use LaravelEnso\Companies\App\Models\Company;
+use LaravelEnso\Forms\App\Services\Form;
+use LaravelEnso\People\App\Models\Person;
 
 class PersonForm
 {
     protected const TemplatePath = __DIR__.'/../Templates/person.json';
 
-    protected $form;
-    protected $company;
+    protected Form $form;
+    protected Company $company;
 
     public function __construct()
     {
@@ -32,7 +33,7 @@ class PersonForm
             ->edit($person);
     }
 
-    public function company($company)
+    public function company(Company $company)
     {
         $this->company = $company;
 

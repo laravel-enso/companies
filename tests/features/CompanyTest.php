@@ -1,12 +1,12 @@
 <?php
 
 use Tests\TestCase;
-use LaravelEnso\Core\app\Models\User;
-use LaravelEnso\Companies\app\Models\Company;
-use LaravelEnso\Forms\app\TestTraits\EditForm;
-use LaravelEnso\Forms\app\TestTraits\DestroyForm;
+use LaravelEnso\Core\App\Models\User;
+use LaravelEnso\Companies\App\Models\Company;
+use LaravelEnso\Forms\App\TestTraits\EditForm;
+use LaravelEnso\Forms\App\TestTraits\DestroyForm;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use LaravelEnso\Tables\app\Traits\Tests\Datatable;
+use LaravelEnso\Tables\App\Traits\Tests\Datatable;
 
 class CompanyTest extends TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Http\Controllers\Person;
+namespace LaravelEnso\Companies\App\Http\Controllers\Person;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\Companies\app\Http\Requests\ValidatePersonUpdate;
-use LaravelEnso\People\app\Models\Person;
+use LaravelEnso\Companies\App\Http\Requests\ValidatePersonUpdate;
+use LaravelEnso\People\App\Models\Person;
 
 class Update extends Controller
 {

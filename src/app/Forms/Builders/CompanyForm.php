@@ -1,16 +1,16 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Forms\Builders;
+namespace LaravelEnso\Companies\App\Forms\Builders;
 
-use LaravelEnso\Companies\app\Enums\CompanyStatuses;
-use LaravelEnso\Companies\app\Models\Company;
-use LaravelEnso\Forms\app\Services\Form;
+use LaravelEnso\Companies\App\Enums\CompanyStatuses;
+use LaravelEnso\Companies\App\Models\Company;
+use LaravelEnso\Forms\App\Services\Form;
 
 class CompanyForm
 {
     protected const TemplatePath = __DIR__.'/../Templates/company.json';
 
-    protected $form;
+    protected Form $form;
 
     public function __construct()
     {

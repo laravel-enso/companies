@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Http\Controllers\Company;
+namespace LaravelEnso\Companies\App\Http\Controllers\Company;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\Companies\app\Models\Company;
-use LaravelEnso\Select\app\Traits\OptionsBuilder;
+use LaravelEnso\Companies\App\Models\Company;
+use LaravelEnso\Select\App\Traits\OptionsBuilder;
 
 class Options extends Controller
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Http\Controllers\Company;
+namespace LaravelEnso\Companies\App\Http\Controllers\Company;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyRequest;
-use LaravelEnso\Companies\app\Models\Company;
+use LaravelEnso\Companies\App\Http\Requests\ValidateCompanyRequest;
+use LaravelEnso\Companies\App\Models\Company;
 
 class Store extends Controller
 {

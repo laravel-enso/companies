@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Http\Requests;
+namespace LaravelEnso\Companies\App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use LaravelEnso\Companies\app\Enums\CompanyStatuses;
+use LaravelEnso\Companies\App\Enums\CompanyStatuses;
 
 class ValidateCompanyRequest extends FormRequest
 {
@@ -17,10 +17,10 @@ class ValidateCompanyRequest extends FormRequest
     {
         return [
             'mandatary' => 'nullable|exists:people,id',
-            'name' => ['required', 'string', $this->nameUnique()],
+            'name' => ['required', 'string', $this->unique('name')],
             'status' => 'required|numeric|in:'.CompanyStatuses::keys()->implode(','),
-            'fiscal_code' => ['string', 'nullable', $this->fiscalCodeUnique()],
-            'reg_com_nr' => ['string', 'nullable', $this->regComNrUnique()],
+            'fiscal_code' => ['string', 'nullable', $this->unique('fiscal_code')],
+            'reg_com_nr' => ['string', 'nullable', $this->unique('reg_com_nr')],
             'email' => 'email|nullable',
             'phone' => 'nullable',
             'fax' => 'nullable',
@@ -35,12 +35,9 @@ class ValidateCompanyRequest extends FormRequest
     public function withValidator($validator)
     {
         if ($this->filled('mandatary') && $this->mandataryIsNotAssociated()) {
-            $validator->after(function ($validator) {
-                $validator->errors()->add(
-                    'mandatary',
-                    __('The selected person is not associated to this company')
-                );
-            });
+            $validator->after(fn ($validator) => $validator->errors()
+                ->add('mandatary', __('The selected person is not associated to this company'))
+            );
         }
     }
 
@@ -50,21 +47,9 @@ class ValidateCompanyRequest extends FormRequest
             ->pluck('id')->contains($this->get('mandatary'));
     }
 
-    protected function nameUnique()
+    protected function unique(string $attribute)
     {
-        return Rule::unique('companies', 'name')
-            ->ignore(optional($this->route('company'))->id);
-    }
-
-    protected function fiscalCodeUnique()
-    {
-        return Rule::unique('companies', 'fiscal_code')
-            ->ignore(optional($this->route('company'))->id);
-    }
-
-    protected function regComNrUnique()
-    {
-        return Rule::unique('companies', 'reg_com_nr')
+        return Rule::unique('companies', $attribute)
             ->ignore(optional($this->route('company'))->id);
     }
 }

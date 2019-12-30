@@ -1,11 +1,11 @@
 <?php
 
-namespace LaravelEnso\Companies\app\Http\Controllers\Person;
+namespace LaravelEnso\Companies\App\Http\Controllers\Person;
 
 use Illuminate\Routing\Controller;
-use LaravelEnso\Companies\app\Exceptions\CompanyException;
-use LaravelEnso\Companies\app\Models\Company;
-use LaravelEnso\People\app\Models\Person;
+use LaravelEnso\Companies\App\Exceptions\Company as Exception;
+use LaravelEnso\Companies\App\Models\Company;
+use LaravelEnso\People\App\Models\Person;
 
 class Destroy extends Controller
 {
@@ -13,7 +13,7 @@ class Destroy extends Controller
     {
         if (optional($company->mandatary())->id === $person->id
             && $company->people()->exists()) {
-            throw CompanyException::dissociateMandatary();
+            throw Exception::dissociateMandatary();
         }
 
         $person->companies()->detach($company->id);
