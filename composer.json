@@ -25,6 +25,7 @@
         "laravel-enso/enums": "1.2.*",
         "laravel-enso/discussions": "2.3.*",
         "laravel-enso/documents": "3.4.*",
+        "laravel-enso/dynamic-methods": "1.1.*",
         "laravel-enso/forms": "3.4.*",
         "laravel-enso/helpers": "1.15.*",
         "laravel-enso/migrator": "1.1.*",
