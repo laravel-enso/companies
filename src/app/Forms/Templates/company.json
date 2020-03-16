@@ -85,7 +85,7 @@
             ]
         },
         {
-            "columns": "3",
+            "columns": 3,
             "fields": [
                 {
                     "label": "Website",
@@ -117,10 +117,9 @@
             ]
         },
         {
-            "columns": "3",
+            "columns": 3,
             "fields": [
                 {
-                    "column": 2,
                     "label": "Pays VAT",
                     "name": "pays_vat",
                     "value": false,
@@ -130,7 +129,6 @@
                     }
                 },
                 {
-                    "column": 2,
                     "label": "Is Tenant",
                     "name": "is_tenant",
                     "value": false,
