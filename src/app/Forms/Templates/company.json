@@ -85,10 +85,18 @@
             ]
         },
         {
-            "columns": "custom",
+            "columns": "3",
             "fields": [
                 {
-                    "column": 4,
+                    "label": "Website",
+                    "name": "website",
+                    "value": "",
+                    "meta": {
+                        "type": "input",
+                        "content": "text"
+                    }
+                },
+                {
                     "label": "Bank",
                     "name": "bank",
                     "value": "",
@@ -98,7 +106,6 @@
                     }
                 },
                 {
-                    "column": 4,
                     "label": "Bank Account",
                     "name": "bank_account",
                     "value": "",
@@ -106,7 +113,12 @@
                         "type": "input",
                         "content": "text"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "columns": "3",
+            "fields": [
                 {
                     "column": 2,
                     "label": "Pays VAT",

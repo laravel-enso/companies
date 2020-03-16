@@ -23,8 +23,8 @@ class Company extends Model
         Documentable, Relations, Rememberable, TableCache, UpdatedBy;
 
     protected $fillable = [
-        'name', 'email', 'phone', 'fax', 'bank', 'bank_account', 'obs',
-        'pays_vat', 'is_tenant', 'fiscal_code', 'reg_com_nr', 'status',
+        'name', 'email', 'phone', 'fax', 'website', 'bank', 'bank_account',
+        'obs', 'pays_vat', 'is_tenant', 'fiscal_code', 'reg_com_nr', 'status',
     ];
 
     protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];

@@ -24,6 +24,7 @@ class ValidateCompanyRequest extends FormRequest
             'email' => 'email|nullable',
             'phone' => 'nullable',
             'fax' => 'nullable',
+            'website' => 'nullable|url',
             'bank' => 'string|nullable',
             'bank_account' => 'string|nullable',
             'obs' => 'string|nullable',
