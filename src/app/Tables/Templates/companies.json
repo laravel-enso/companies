@@ -55,6 +55,16 @@
             ]
         },
         {
+            "label": "Website",
+            "name": "website",
+            "data": "companies.website",
+            "meta": [
+                "searchable",
+                "sortable",
+                "clickable"
+            ]
+        },
+        {
             "label": "Pays VAT",
             "name": "pays_vat",
             "data": "companies.pays_vat",

@@ -2,18 +2,14 @@
 
 namespace LaravelEnso\Companies\App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use LaravelEnso\People\App\Http\Resources\Person as Resource;
 
-class Person extends JsonResource
+class Person extends Resource
 {
     public function toArray($request)
     {
-        return [
-            'id' => $this->id,
+        return parent::toArray($request) + [
             'position' => $this->pivot->position,
-            'name' => $this->name,
-            'phone' => $this->phone,
-            'email' => $this->email,
             'createdAt' => $this->created_at->toDatetimeString(),
         ];
     }
