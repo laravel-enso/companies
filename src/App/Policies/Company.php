@@ -2,7 +2,6 @@
 
 namespace LaravelEnso\Companies\App\Policies;
 
-use Illuminate\Auth\Access\Response;
 use LaravelEnso\Companies\App\Models\Company as Model;
 use LaravelEnso\Core\App\Models\User;
 

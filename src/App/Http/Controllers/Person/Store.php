@@ -6,7 +6,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
 use LaravelEnso\Companies\App\Http\Requests\ValidatePersonStore;
 use LaravelEnso\Companies\App\Models\Company;
-use LaravelEnso\People\App\Models\Person;
 
 class Store extends Controller
 {
