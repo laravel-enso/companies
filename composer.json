@@ -43,6 +43,7 @@
         "laravel": {
             "providers": [
                 "LaravelEnso\\Companies\\AppServiceProvider",
+                "LaravelEnso\\Companies\\AuthServiceProvider",
                 "LaravelEnso\\Companies\\SearchServiceProvider",
                 "LaravelEnso\\Companies\\EnumServiceProvider"
             ],
