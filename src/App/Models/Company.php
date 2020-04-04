@@ -4,7 +4,6 @@ namespace LaravelEnso\Companies\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use LaravelEnso\Addresses\App\Traits\Addressable;
 use LaravelEnso\Comments\App\Traits\Commentable;
 use LaravelEnso\Discussions\App\Traits\Discussable;
@@ -19,8 +18,16 @@ use LaravelEnso\TrackWho\App\Traits\UpdatedBy;
 
 class Company extends Model
 {
-    use Addressable, AvoidsDeletionConflicts, Commentable, CreatedBy, Discussable,
-        Documentable, Relations, Rememberable, TableCache, UpdatedBy;
+    use Addressable,
+        AvoidsDeletionConflicts,
+        Commentable,
+        CreatedBy,
+        Discussable,
+        Documentable,
+        Relations,
+        Rememberable,
+        TableCache,
+        UpdatedBy;
 
     protected $fillable = [
         'name', 'email', 'phone', 'fax', 'website', 'bank', 'bank_account',
@@ -37,8 +44,7 @@ class Company extends Model
 
     public static function owner()
     {
-        return App::make(static::class)
-            ->cacheGet(config('enso.config.ownerCompanyId'));
+        return static::cacheGet(config('enso.config.ownerCompanyId'));
     }
 
     public function isTenant()
@@ -70,8 +76,10 @@ class Company extends Model
 
     public function updateMandatary(?int $mandataryId)
     {
-        $pivotIds = $this->people->pluck('id')->reduce(fn ($pivot, $value) => $pivot
-            ->put($value, ['is_mandatary' => $value === $mandataryId]), new Collection()
+        $pivotIds = $this->people->pluck('id')->reduce(
+            fn ($pivot, $value) => $pivot
+                ->put($value, ['is_mandatary' => $value === $mandataryId]),
+            new Collection()
         )->toArray();
 
         $this->people()->sync($pivotIds);
