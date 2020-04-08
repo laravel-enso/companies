@@ -84,15 +84,6 @@
             "enum": "LaravelEnso\\Companies\\App\\Enums\\CompanyStatuses"
         },
         {
-            "label": "Status Value",
-            "name": "statusValue",
-            "data": "statusValue",
-            "meta": [
-                "rogue",
-                "notExportable"
-            ]
-        },
-        {
             "label": "Tenant",
             "name": "is_tenant",
             "data": "companies.is_tenant",

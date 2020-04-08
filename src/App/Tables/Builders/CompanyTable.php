@@ -15,8 +15,7 @@ class CompanyTable implements Table
         return Company::selectRaw('
             companies.id, companies.name,  companies.fiscal_code,  people.name as mandatary,
             companies.email, companies.website, companies.bank,  companies.pays_vat, 
-            companies.phone,  companies.status, companies.status as statusValue,
-            companies.is_tenant, companies.created_at
+            companies.phone,  companies.status, companies.is_tenant, companies.created_at
         ')->leftJoin(
             'company_person',
             fn ($join) => $join
