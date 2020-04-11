@@ -22,6 +22,7 @@
         "laravel-enso/core": "4.8.*",
         "laravel-enso/addresses": "3.4.*",
         "laravel-enso/comments": "3.3.*",
+        "laravel-enso/data-import": "4.4.*",
         "laravel-enso/enums": "1.2.*",
         "laravel-enso/discussions": "2.3.*",
         "laravel-enso/documents": "3.4.*",
