@@ -2,8 +2,8 @@
 
 namespace LaravelEnso\Companies;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\ServiceProvider;
 use LaravelEnso\Companies\App\Models\Company;
 
 class AppServiceProvider extends ServiceProvider
