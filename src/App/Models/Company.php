@@ -10,6 +10,7 @@ use LaravelEnso\Discussions\App\Traits\Discussable;
 use LaravelEnso\Documents\App\Traits\Documentable;
 use LaravelEnso\DynamicMethods\App\Traits\Relations;
 use LaravelEnso\Helpers\App\Traits\AvoidsDeletionConflicts;
+use LaravelEnso\Helpers\App\Traits\CascadesMorphMap;
 use LaravelEnso\People\App\Models\Person;
 use LaravelEnso\Rememberable\App\Traits\Rememberable;
 use LaravelEnso\Tables\App\Traits\TableCache;
@@ -18,7 +19,8 @@ use LaravelEnso\TrackWho\App\Traits\UpdatedBy;
 
 class Company extends Model
 {
-    use Addressable,
+    use CascadesMorphMap,
+        Addressable,
         AvoidsDeletionConflicts,
         Commentable,
         CreatedBy,
