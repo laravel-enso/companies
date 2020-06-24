@@ -1,12 +1,12 @@
 <?php
 
-use Tests\TestCase;
-use LaravelEnso\Core\App\Models\User;
-use LaravelEnso\Companies\App\Models\Company;
-use LaravelEnso\Forms\App\TestTraits\EditForm;
-use LaravelEnso\Forms\App\TestTraits\DestroyForm;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use LaravelEnso\Tables\App\Traits\Tests\Datatable;
+use LaravelEnso\Companies\Models\Company;
+use LaravelEnso\Core\Models\User;
+use LaravelEnso\Forms\TestTraits\DestroyForm;
+use LaravelEnso\Forms\TestTraits\EditForm;
+use LaravelEnso\Tables\Traits\Tests\Datatable;
+use Tests\TestCase;
 
 class CompanyTest extends TestCase
 {
@@ -65,10 +65,11 @@ class CompanyTest extends TestCase
             route('administration.companies.update', $this->testModel->id, false),
             $this->testModel->toArray()
         )->assertStatus(200)
-        ->assertJsonStructure(['message']);
+            ->assertJsonStructure(['message']);
 
         $this->assertEquals(
-            $this->testModel->name, $this->testModel->fresh()->name
+            $this->testModel->name,
+            $this->testModel->fresh()->name
         );
     }
 
@@ -81,7 +82,7 @@ class CompanyTest extends TestCase
             'query' => $this->testModel->name,
             'limit' => 10,
         ], false))
-        ->assertStatus(200)
-        ->assertJsonFragment(['name' => $this->testModel->name]);
+            ->assertStatus(200)
+            ->assertJsonFragment(['name' => $this->testModel->name]);
     }
 }

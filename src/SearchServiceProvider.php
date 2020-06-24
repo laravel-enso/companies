@@ -2,7 +2,7 @@
 
 namespace LaravelEnso\Companies;
 
-use LaravelEnso\Companies\App\Models\Company;
+use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\Searchable\SearchServiceProvider as ServiceProvider;
 
 class SearchServiceProvider extends ServiceProvider

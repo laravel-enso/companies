@@ -1,10 +1,10 @@
 <?php
 
-use Tests\TestCase;
-use LaravelEnso\Core\App\Models\User;
-use LaravelEnso\People\App\Models\Person;
-use LaravelEnso\Companies\App\Models\Company;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use LaravelEnso\Companies\Models\Company;
+use LaravelEnso\Core\Models\User;
+use LaravelEnso\People\Models\Person;
+use Tests\TestCase;
 
 class CompanyPeopleTest extends TestCase
 {
@@ -42,10 +42,10 @@ class CompanyPeopleTest extends TestCase
         $this->setCompany();
 
         $this->get(route(
-                'administration.companies.people.edit',
-                [$this->company->id, $this->testModel->id],
-                false)
-            )
+            'administration.companies.people.edit',
+            [$this->company->id, $this->testModel->id],
+            false
+        ))
             ->assertStatus(200)
             ->assertJsonStructure(['form']);
     }
@@ -75,13 +75,14 @@ class CompanyPeopleTest extends TestCase
         $this->setCompany();
 
         $this->patch(
-            route('administration.companies.people.update', [$this->testModel->id], false), [
+            route('administration.companies.people.update', [$this->testModel->id], false),
+            [
                 'company_id' => $this->company->id,
                 'id' => $this->testModel->id,
                 'position' => 'updated',
             ]
         )->assertStatus(200)
-        ->assertJsonStructure(['message']);
+            ->assertJsonStructure(['message']);
 
         $this->assertEquals('updated', $this->testModel->fresh()->companies()->first()->pivot->position);
     }
@@ -95,8 +96,8 @@ class CompanyPeopleTest extends TestCase
             'query' => $this->testModel->name,
             'limit' => 10,
         ], false))
-        ->assertStatus(200)
-        ->assertJsonFragment(['id' => $this->testModel->id]);
+            ->assertStatus(200)
+            ->assertJsonFragment(['id' => $this->testModel->id]);
     }
 
     /** @test */
@@ -105,10 +106,10 @@ class CompanyPeopleTest extends TestCase
         $this->setCompany();
 
         $this->delete(route(
-                'administration.companies.people.destroy',
-                [$this->company->id, $this->testModel->id],
-                false)
-            )
+            'administration.companies.people.destroy',
+            [$this->company->id, $this->testModel->id],
+            false
+        ))
             ->assertStatus(200);
 
         $this->assertNull($this->testModel->fresh()->company_id);
