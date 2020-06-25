@@ -5,9 +5,12 @@ namespace LaravelEnso\Companies\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use LaravelEnso\Companies\Enums\Statuses;
+use LaravelEnso\Helpers\Traits\FiltersRequest;
 
 class ValidateCompanyRequest extends FormRequest
 {
+    use FiltersRequest;
+
     public function authorize()
     {
         return true;

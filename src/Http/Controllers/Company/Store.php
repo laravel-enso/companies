@@ -13,7 +13,7 @@ class Store extends Controller
 
     public function __invoke(ValidateCompanyRequest $request, Company $company)
     {
-        $company->fill($request->validated());
+        $company->fill($request->validatedExcept('mandatary'));
 
         $this->authorize('store', $company);
 

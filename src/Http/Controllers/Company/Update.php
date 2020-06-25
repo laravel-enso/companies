@@ -15,7 +15,7 @@ class Update extends Controller
     {
         $this->authorize('update', $company);
 
-        tap($company)->update($request->validated())
+        tap($company)->update($request->validatedExcept('mandatary'))
             ->updateMandatary($request->get('mandatary'));
 
         return ['message' => __('The company was successfully updated')];

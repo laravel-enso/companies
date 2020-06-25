@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\RoutesNotifications;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
+use LaravelEnso\Addresses\App\Traits\Addressable;
 use LaravelEnso\Comments\Traits\Commentable;
 use LaravelEnso\DynamicMethods\Traits\Abilities;
 use LaravelEnso\Helpers\Traits\AvoidsDeletionConflicts;
@@ -18,6 +19,7 @@ use LaravelEnso\TrackWho\Traits\UpdatedBy;
 class Company extends Model
 {
     use Abilities,
+        Addressable,
         AvoidsDeletionConflicts,
         CascadesMorphMap,
         Commentable,
