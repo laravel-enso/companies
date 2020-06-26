@@ -80,7 +80,7 @@
                 "sortable",
                 "slot"
             ],
-            "enum": "LaravelEnso\\Companies\\Enums\\CompanyStatuses"
+            "enum": "LaravelEnso\\Companies\\Enums\\Statuses"
         },
         {
             "label": "Tenant",
