@@ -11,6 +11,7 @@ use LaravelEnso\DynamicMethods\Traits\Abilities;
 use LaravelEnso\Helpers\Traits\AvoidsDeletionConflicts;
 use LaravelEnso\Helpers\Traits\CascadesMorphMap;
 use LaravelEnso\People\Models\Person;
+use LaravelEnso\Rememberable\Traits\Rememberable;
 use LaravelEnso\Tables\Traits\TableCache;
 use LaravelEnso\TrackWho\Traits\CreatedBy;
 use LaravelEnso\TrackWho\Traits\UpdatedBy;
@@ -22,6 +23,7 @@ class Company extends Model
         AvoidsDeletionConflicts,
         CascadesMorphMap,
         CreatedBy,
+        Rememberable,
         RoutesNotifications,
         TableCache,
         UpdatedBy;
