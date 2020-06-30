@@ -1,8 +1,10 @@
 {
     "routePrefix": "administration.companies",
-    "sections": [{
+    "sections": [
+        {
             "columns": 2,
-            "fields": [{
+            "fields": [
+                {
                     "label": "Name",
                     "name": "name",
                     "value": "",
@@ -25,7 +27,8 @@
         },
         {
             "columns": 3,
-            "fields": [{
+            "fields": [
+                {
                     "label": "Status",
                     "name": "status",
                     "value": null,
@@ -83,7 +86,8 @@
         },
         {
             "columns": 3,
-            "fields": [{
+            "fields": [
+                {
                     "label": "Website",
                     "name": "website",
                     "value": "",
@@ -114,7 +118,8 @@
         },
         {
             "columns": 3,
-            "fields": [{
+            "fields": [
+                {
                     "label": "Pays VAT",
                     "name": "pays_vat",
                     "value": false,
@@ -136,15 +141,17 @@
         },
         {
             "columns": 1,
-            "fields": [{
-                "label": "Notes",
-                "name": "obs",
-                "value": "",
-                "meta": {
-                    "type": "textarea",
-                    "rows": 3
+            "fields": [
+                {
+                    "label": "Notes",
+                    "name": "notes",
+                    "value": "",
+                    "meta": {
+                        "type": "textarea",
+                        "rows": 3
+                    }
                 }
-            }]
+            ]
         }
     ]
 }

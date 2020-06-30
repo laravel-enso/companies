@@ -1,32 +1,35 @@
 {
     "timeout": 500,
-    "sheets": [{
-        "name": "companies",
-        "importerClass": "LaravelEnso\\Companies\\Imports\\Importers\\Company",
-        "columns": [{
-                "name": "name",
-                "validations": "string|required|unique:companies,name"
-            },
-            {
-                "name": "email",
-                "validations": "string|nullable"
-            },
-            {
-                "name": "fiscal_code",
-                "validations": "nullable"
-            },
-            {
-                "name": "reg_com_nr",
-                "validations": "string|nullable"
-            },
-            {
-                "name": "obs",
-                "validations": "string|nullable"
-            },
-            {
-                "name": "pays_vat",
-                "validations": "required|boolean"
-            }
-        ]
-    }]
+    "sheets": [
+        {
+            "name": "companies",
+            "importerClass": "LaravelEnso\\Companies\\Imports\\Importers\\Company",
+            "columns": [
+                {
+                    "name": "name",
+                    "validations": "string|required|unique:companies,name"
+                },
+                {
+                    "name": "email",
+                    "validations": "string|nullable"
+                },
+                {
+                    "name": "fiscal_code",
+                    "validations": "nullable"
+                },
+                {
+                    "name": "reg_com_nr",
+                    "validations": "string|nullable"
+                },
+                {
+                    "name": "notes",
+                    "validations": "string|nullable"
+                },
+                {
+                    "name": "pays_vat",
+                    "validations": "required|boolean"
+                }
+            ]
+        }
+    ]
 }

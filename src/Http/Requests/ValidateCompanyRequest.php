@@ -30,7 +30,7 @@ class ValidateCompanyRequest extends FormRequest
             'website' => 'nullable|url',
             'bank' => 'string|nullable',
             'bank_account' => 'string|nullable',
-            'obs' => 'string|nullable',
+            'notes' => 'string|nullable',
             'pays_vat' => 'required|boolean',
             'is_tenant' => 'required|boolean',
         ];

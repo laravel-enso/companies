@@ -23,7 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->string('bank')->nullable();
             $table->string('bank_account')->nullable();
 
-            $table->text('obs')->nullable();
+            $table->text('notes')->nullable();
 
             $table->boolean('pays_vat')->nullable();
             $table->tinyInteger('status');
