@@ -1,6 +1,6 @@
 # Companies
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a05a5276a5c4f6db3cb05db2086bbab)](https://www.codacy.com/app/laravel-enso/Companies?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/companies&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c10309520b28424aa7403af504a349d1)](https://www.codacy.com/gh/laravel-enso/companies?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/companies&amp;utm_campaign=Badge_Grade) 
 [![StyleCI](https://github.styleci.io/repos/151941399/shield?branch=master)](https://github.styleci.io/repos/151941399)
 [![License](https://poser.pugx.org/laravel-enso/companies/license)](https://packagist.org/packages/laravel-enso/companies)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/companies/downloads)](https://packagist.org/packages/laravel-enso/companies)
