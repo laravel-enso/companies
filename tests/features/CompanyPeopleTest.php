@@ -21,10 +21,10 @@ class CompanyPeopleTest extends TestCase
         $this->seed()
             ->actingAs(User::first());
 
-        $this->company = factory(Company::class)
+        $this->company = Company::factory()
             ->create();
 
-        $this->testModel = factory(Person::class)
+        $this->testModel = Person::factory()
             ->create();
     }
 
