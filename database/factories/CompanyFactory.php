@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Core\Database\Factories;
+namespace LaravelEnso\Companies\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use LaravelEnso\Companies\Enums\Statuses;
