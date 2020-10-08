@@ -16,6 +16,6 @@ class Company implements Importable
 
     private function import($row)
     {
-        factory(Model::class)->create($row->toArray());
+        (Model::class)::factory()->create($row->toArray());
     }
 }
