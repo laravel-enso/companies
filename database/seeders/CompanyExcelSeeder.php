@@ -1,5 +1,7 @@
 <?php
 
+namespace LaravelEnso\Companies\Database\Seeders;
+
 use LaravelEnso\DataImport\Services\ExcelSeeder;
 
 class CompanyExcelSeeder extends ExcelSeeder

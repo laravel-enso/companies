@@ -1,20 +1,30 @@
 <?php
 
-use Faker\Generator as Faker;
+namespace LaravelEnso\Core\Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
 use LaravelEnso\Companies\Enums\Statuses;
 use LaravelEnso\Companies\Models\Company;
 
-$factory->define(Company::class, fn (Faker $faker) => [
-    'name' => $faker->unique()->company,
-    'fiscal_code' => $faker->ean8,
-    'reg_com_nr' => $faker->ean13,
-    'email' => $faker->email,
-    'phone' => $faker->phoneNumber,
-    'fax' => $faker->phoneNumber,
-    'bank' => $faker->company,
-    'bank_account' => $faker->bankAccountNumber,
-    'notes' => $faker->sentence,
-    'pays_vat' => $faker->boolean,
-    'is_tenant' => false,
-    'status' => Statuses::Active,
-]);
+class CompanyFactory extends Factory
+{
+    protected $model = Company::class;
+
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->unique()->company,
+            'fiscal_code' => $this->faker->ean8,
+            'reg_com_nr' => $this->faker->ean13,
+            'email' => $this->faker->email,
+            'phone' => $this->faker->phoneNumber,
+            'fax' => $this->faker->phoneNumber,
+            'bank' => $this->faker->company,
+            'bank_account' => $this->faker->bankAccountNumber,
+            'notes' => $this->faker->sentence,
+            'pays_vat' => $this->faker->boolean,
+            'is_tenant' => false,
+            'status' => Statuses::Active,
+        ];
+    }
+}

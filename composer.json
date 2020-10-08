@@ -17,7 +17,7 @@
         "role": "Developer"
     }],
     "require": {
-        "laravel-enso/core": "^5.0",
+        "laravel-enso/core": "^6.0",
         "laravel-enso/addresses": "^4.0",
         "laravel-enso/data-import": "^5.0",
         "laravel-enso/enums": "^2.0",
@@ -32,7 +32,9 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelEnso\\Companies\\": "src/"
+            "LaravelEnso\\Companies\\": "src/",
+            "LaravelEnso\\Companies\\Database\\Factories\\": "database/factories/",
+            "LaravelEnso\\Companies\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "extra": {
