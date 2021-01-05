@@ -3,6 +3,7 @@
 namespace LaravelEnso\Companies\Tables\Builders;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\App;
 use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\Tables\Contracts\Table;
 
@@ -12,7 +13,7 @@ class CompanyTable implements Table
 
     public function query(): Builder
     {
-        return Company::selectRaw('
+        return App::make(Company::class)->selectRaw('
             companies.id, companies.name,  companies.fiscal_code,  people.name as mandatary,
             companies.email, companies.website, companies.bank,  companies.pays_vat, 
             companies.phone,  companies.status, companies.is_tenant, companies.created_at
