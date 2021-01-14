@@ -10,6 +10,8 @@ class Edit extends Controller
 {
     public function __invoke(Company $company, CompanyForm $form)
     {
+        $this->authorize('update', $company);
+
         return ['form' => $form->edit($company)];
     }
 }
