@@ -4,6 +4,7 @@ namespace LaravelEnso\Companies;
 
 use Illuminate\Support\ServiceProvider;
 use LaravelEnso\Companies\Models\Company;
+use LaravelEnso\Addresses\Services\Addressable;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,6 +12,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->load()
             ->publish()
+            ->relations()
             ->mapMorphs();
     }
 
@@ -32,6 +34,13 @@ class AppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../database/seeds' => database_path('seeds'),
         ], ['companies-seeder', 'enso-seeders']);
+
+        return $this;
+    }
+
+    private function relations()
+    {
+        Addressable::register(Company::class);
 
         return $this;
     }
