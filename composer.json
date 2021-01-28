@@ -42,6 +42,7 @@
                 "LaravelEnso\\Companies\\AppServiceProvider",
                 "LaravelEnso\\Companies\\AuthServiceProvider",
                 "LaravelEnso\\Companies\\SearchServiceProvider",
+                "LaravelEnso\\Companies\\AddressableServiceProvider",
                 "LaravelEnso\\Companies\\EnumServiceProvider"
             ],
             "aliases": {}
