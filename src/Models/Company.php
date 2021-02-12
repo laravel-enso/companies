@@ -34,6 +34,8 @@ class Company extends Model
 
     protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];
 
+    protected array $rememberableKeys = ['id', 'name'];
+    
     public function people()
     {
         return $this->belongsToMany(Person::class)
