@@ -19,20 +19,14 @@ use LaravelEnso\TrackWho\Traits\UpdatedBy;
 
 class Company extends Model
 {
-    use Abilities,
-        Addressable,
-        AvoidsDeletionConflicts,
-        CascadesMorphMap,
-        CreatedBy,
-        HasFactory,
-        Rememberable,
-        RoutesNotifications,
-        TableCache,
-        UpdatedBy;
+    use Abilities, Addressable, AvoidsDeletionConflicts, CascadesMorphMap, CreatedBy;
+    use HasFactory, Rememberable, RoutesNotifications, TableCache, UpdatedBy;
 
     protected $guarded = ['id'];
 
     protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];
+
+    protected $rememberableKeys = ['id', 'name'];
 
     public function people()
     {
