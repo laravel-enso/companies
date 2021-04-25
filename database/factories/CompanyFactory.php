@@ -13,6 +13,24 @@ class CompanyFactory extends Factory
     public function definition()
     {
         return [
+            'name' => null,
+            'fiscal_code' => null,
+            'reg_com_nr' => null,
+            'email' => null,
+            'phone' => null,
+            'fax' => null,
+            'bank' => null,
+            'bank_account' => null,
+            'notes' => null,
+            'pays_vat' => null,
+            'is_tenant' => false,
+            'status' => Statuses::Active,
+        ];
+    }
+
+    public function test()
+    {
+        return $this->state(fn () => [
             'name' => $this->faker->unique()->company,
             'fiscal_code' => $this->faker->ean8,
             'reg_com_nr' => $this->faker->ean13,
@@ -23,8 +41,8 @@ class CompanyFactory extends Factory
             'bank_account' => $this->faker->bankAccountNumber,
             'notes' => $this->faker->sentence,
             'pays_vat' => $this->faker->boolean,
-            'is_tenant' => false,
-            'status' => Statuses::Active,
-        ];
+            'is_tenant' => $this->faker->boolean,
+            'status' => Statuses::keys()->random(),
+        ]);
     }
 }
