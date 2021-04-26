@@ -22,7 +22,7 @@ class CompanyFactory extends Factory
             'bank' => null,
             'bank_account' => null,
             'notes' => null,
-            'pays_vat' => null,
+            'pays_vat' => true,
             'is_tenant' => false,
             'status' => Statuses::Active,
         ];
