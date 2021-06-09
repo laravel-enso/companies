@@ -10,14 +10,16 @@
     "homepage": "https://github.com/laravel-enso/companies",
     "type": "library",
     "license": "MIT",
-    "authors": [{
-        "name": "Adrian Ocneanu",
-        "email": "aocneanu@gmail.com",
-        "homepage": "https://laravel-enso.com",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "Adrian Ocneanu",
+            "email": "aocneanu@gmail.com",
+            "homepage": "https://laravel-enso.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
-        "laravel-enso/core": "^6.0",
+        "laravel-enso/core": "^7.0",
         "laravel-enso/addresses": "^4.0",
         "laravel-enso/enums": "^2.0",
         "laravel-enso/dynamic-methods": "^2.0",

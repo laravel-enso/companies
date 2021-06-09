@@ -16,10 +16,10 @@ class Destroy extends Controller
     {
         $this->authorize('manage-people', $company);
 
-        if (
-            optional($company->mandatary())->id === $person->id
-            && $company->people()->exists()
-        ) {
+        $isMandatary = $company->mandatary()?->id === $person->id
+            && $company->people()->exists();
+
+        if ($isMandatary) {
             throw Exception::dissociateMandatary();
         }
 

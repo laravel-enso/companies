@@ -2,10 +2,10 @@
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use LaravelEnso\Companies\Models\Company;
-use LaravelEnso\Core\Models\User;
 use LaravelEnso\Forms\TestTraits\DestroyForm;
 use LaravelEnso\Forms\TestTraits\EditForm;
 use LaravelEnso\Tables\Traits\Tests\Datatable;
+use LaravelEnso\Users\Models\User;
 use Tests\TestCase;
 
 class CompanyTest extends TestCase
@@ -18,8 +18,6 @@ class CompanyTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        // $this->withoutExceptionHandling();
 
         $this->seed()
             ->actingAs(User::first());
@@ -57,8 +55,8 @@ class CompanyTest extends TestCase
     /** @test */
     public function can_update_company()
     {
-        tap($this->testModel)->save()
-            ->name = 'updated';
+        $this->testModel->save();
+        $this->testModel->name = 'updated';
 
         $this->patch(
             route('administration.companies.update', $this->testModel->id, false),
@@ -80,8 +78,7 @@ class CompanyTest extends TestCase
         $this->get(route('administration.companies.options', [
             'query' => $this->testModel->name,
             'limit' => 10,
-        ], false))
-            ->assertStatus(200)
+        ], false))->assertStatus(200)
             ->assertJsonFragment(['name' => $this->testModel->name]);
     }
 }

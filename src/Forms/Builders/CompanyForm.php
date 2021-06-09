@@ -29,7 +29,7 @@ class CompanyForm
     public function edit(Company $company)
     {
         return $this->form
-            ->value('mandatary', optional($company->mandatary())->id)
+            ->value('mandatary', $company->mandatary()?->id)
             ->edit($company);
     }
 }

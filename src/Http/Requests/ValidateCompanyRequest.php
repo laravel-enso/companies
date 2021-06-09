@@ -53,6 +53,6 @@ class ValidateCompanyRequest extends FormRequest
     protected function unique(string $attribute)
     {
         return Rule::unique('companies', $attribute)
-            ->ignore(optional($this->route('company'))->id);
+            ->ignore($this->route('company')?->id);
     }
 }

@@ -3,7 +3,7 @@
 namespace LaravelEnso\Companies\Policies;
 
 use LaravelEnso\Companies\Models\Company as Model;
-use LaravelEnso\Core\Models\User;
+use LaravelEnso\Users\Models\User;
 
 class Company
 {

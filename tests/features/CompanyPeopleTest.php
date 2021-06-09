@@ -2,8 +2,8 @@
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use LaravelEnso\Companies\Models\Company;
-use LaravelEnso\Core\Models\User;
 use LaravelEnso\People\Models\Person;
+use LaravelEnso\Users\Models\User;
 use Tests\TestCase;
 
 class CompanyPeopleTest extends TestCase
@@ -15,8 +15,6 @@ class CompanyPeopleTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        // $this->withoutExceptionHandling();
 
         $this->seed()
             ->actingAs(User::first());
@@ -43,8 +41,7 @@ class CompanyPeopleTest extends TestCase
             'administration.companies.people.edit',
             [$this->company->id, $this->testModel->id],
             false
-        ))
-            ->assertStatus(200)
+        ))->assertStatus(200)
             ->assertJsonStructure(['form']);
     }
 
@@ -53,13 +50,10 @@ class CompanyPeopleTest extends TestCase
     {
         $this->testModel->company_id = $this->company->id;
 
-        $response = $this->post(
-            route('administration.companies.people.store', [], false),
-            [
-                'company_id' => $this->company->id,
-                'id' => $this->testModel->id,
-            ]
-        );
+        $response = $this->post(route('administration.companies.people.store', [], false), [
+            'company_id' => $this->company->id,
+            'id' => $this->testModel->id,
+        ]);
 
         $response->assertStatus(200)
             ->assertJsonStructure(['message']);
@@ -72,14 +66,11 @@ class CompanyPeopleTest extends TestCase
     {
         $this->setCompany();
 
-        $this->patch(
-            route('administration.companies.people.update', [$this->testModel->id], false),
-            [
-                'company_id' => $this->company->id,
-                'id' => $this->testModel->id,
-                'position' => 'updated',
-            ]
-        )->assertStatus(200)
+        $this->patch(route('administration.companies.people.update', [$this->testModel->id], false), [
+            'company_id' => $this->company->id,
+            'id' => $this->testModel->id,
+            'position' => 'updated',
+        ])->assertStatus(200)
             ->assertJsonStructure(['message']);
 
         $this->assertEquals('updated', $this->testModel->fresh()->companies()->first()->pivot->position);
@@ -93,8 +84,7 @@ class CompanyPeopleTest extends TestCase
         $this->get(route('administration.people.options', [
             'query' => $this->testModel->name,
             'limit' => 10,
-        ], false))
-            ->assertStatus(200)
+        ], false))->assertStatus(200)
             ->assertJsonFragment(['id' => $this->testModel->id]);
     }
 
