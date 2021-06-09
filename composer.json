@@ -28,6 +28,7 @@
         "laravel-enso/migrator": "^2.0",
         "laravel-enso/people": "^3.0",
         "laravel-enso/rememberable": "^3.0",
+        "laravel-enso/searchable": "^2.1",
         "laravel-enso/track-who": "^2.0",
         "laravel-enso/tables": "^4.0"
     },
