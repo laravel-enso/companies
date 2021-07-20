@@ -3,6 +3,7 @@
 namespace LaravelEnso\Companies\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use LaravelEnso\Companies\Enums\Statuses;
 use LaravelEnso\Helpers\Traits\FiltersRequest;
@@ -38,10 +39,17 @@ class ValidateCompanyRequest extends FormRequest
 
     public function withValidator($validator)
     {
-        if ($this->filled('mandatary') && $this->mandataryIsNotAssociated()) {
-            $validator->after(fn ($validator) => $validator->errors()
-                ->add('mandatary', __('The selected person is not associated to this company')));
-        }
+        $validator->after(function ($validator) {
+            if ($this->filled('mandatary') && $this->mandataryIsNotAssociated()) {
+                $validator->errors()
+                    ->add('mandatary', __('The selected person is not associated to this company'));
+            }
+
+            if ($this->filled('fiscal_code') && $this->invalidFiscalCode()) {
+                $validator->errors()
+                    ->add('fiscal_code', __('Invalid fiscal code'));
+            }
+        });
     }
 
     protected function mandataryIsNotAssociated()
@@ -54,5 +62,12 @@ class ValidateCompanyRequest extends FormRequest
     {
         return Rule::unique('companies', $attribute)
             ->ignore($this->route('company')?->id);
+    }
+
+    protected function invalidFiscalCode(): bool
+    {
+        return Str::of($this->get('fiscal_code'))->lower()
+            ->ltrim('ro')
+            ->startsWith('0');
     }
 }
