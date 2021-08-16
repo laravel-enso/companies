@@ -3,6 +3,7 @@
 namespace LaravelEnso\Companies\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use LaravelEnso\Companies\Enums\Statuses;
 use LaravelEnso\Companies\Models\Company;
 
@@ -32,7 +33,7 @@ class CompanyFactory extends Factory
     {
         return $this->state(fn () => [
             'name' => $this->faker->unique()->company,
-            'fiscal_code' => $this->faker->ean8,
+            'fiscal_code' => Str::of($this->faker->ean8)->ltrim('0'),
             'reg_com_nr' => $this->faker->ean13,
             'email' => $this->faker->email,
             'phone' => $this->faker->phoneNumber,
