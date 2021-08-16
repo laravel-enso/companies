@@ -33,7 +33,7 @@ class CompanyFactory extends Factory
     {
         return $this->state(fn () => [
             'name' => $this->faker->unique()->company,
-            'fiscal_code' => Str::ltrim($this->faker->ean8, '0'),
+            'fiscal_code' => Str::of($this->faker->ean8)->ltrim('0')->__toString(),
             'reg_com_nr' => $this->faker->ean13,
             'email' => $this->faker->email,
             'phone' => $this->faker->phoneNumber,
