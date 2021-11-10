@@ -1,5 +1,6 @@
 {
     "timeout": 500,
+    "queue": "sync",
     "sheets": [
         {
             "name": "companies",
