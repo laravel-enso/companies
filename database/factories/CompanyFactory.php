@@ -22,6 +22,7 @@ class CompanyFactory extends Factory
             'fax' => null,
             'bank' => null,
             'bank_account' => null,
+            'website' => null,
             'notes' => null,
             'pays_vat' => true,
             'is_tenant' => false,

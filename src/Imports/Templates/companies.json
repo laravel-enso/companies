@@ -15,6 +15,10 @@
                     "validations": "string|nullable"
                 },
                 {
+                    "name": "phone",
+                    "validations": "nullable"
+                },
+                {
                     "name": "fiscal_code",
                     "validations": "nullable"
                 },
@@ -24,6 +28,18 @@
                 },
                 {
                     "name": "notes",
+                    "validations": "string|nullable"
+                },
+                {
+                    "name": "bank",
+                    "validations": "string|nullable"
+                },
+                {
+                    "name": "bank_account",
+                    "validations": "string|nullable"
+                },
+                {
+                    "name": "website",
                     "validations": "string|nullable"
                 },
                 {
