@@ -26,7 +26,7 @@ class Company extends Model
 
     protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];
 
-    protected $rememberableKeys = ['id', 'name'];
+    protected $rememberableKeys = ['id', 'name', 'fiscal_code'];
 
     public function people()
     {
