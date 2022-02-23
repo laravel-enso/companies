@@ -3,16 +3,16 @@
 namespace LaravelEnso\Companies\Tables\Builders;
 
 use Illuminate\Database\Eloquent\Builder;
-use LaravelEnso\Companies\Models\Company;
+use LaravelEnso\Companies\Models\Company as Model;
 use LaravelEnso\Tables\Contracts\Table;
 
-class CompanyTable implements Table
+class Company implements Table
 {
     protected const TemplatePath = __DIR__.'/../Templates/companies.json';
 
     public function query(): Builder
     {
-        return Company::selectRaw('
+        return Model::selectRaw('
             companies.id, companies.name,  companies.fiscal_code,  people.name as mandatary,
             companies.email, companies.website, companies.bank,  companies.pays_vat, 
             companies.phone, companies.status, companies.is_tenant, companies.created_at

@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 use LaravelEnso\Companies\Enums\Statuses;
 use LaravelEnso\Helpers\Traits\FiltersRequest;
 
-class ValidateCompanyRequest extends FormRequest
+class ValidateCompany extends FormRequest
 {
     use FiltersRequest;
 

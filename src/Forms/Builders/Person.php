@@ -4,18 +4,18 @@ namespace LaravelEnso\Companies\Forms\Builders;
 
 use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\Forms\Services\Form;
-use LaravelEnso\People\Models\Person;
+use LaravelEnso\People\Models\Person as Model;
 
-class PersonForm
+class Person
 {
-    protected const TemplatePath = __DIR__.'/../Templates/person.json';
+    private const TemplatePath = __DIR__.'/../Templates/person.json';
 
     protected Form $form;
     protected Company $company;
 
     public function __construct()
     {
-        $this->form = new Form(static::TemplatePath);
+        $this->form = new Form($this->templatePath());
     }
 
     public function create()
@@ -25,7 +25,7 @@ class PersonForm
             ->create();
     }
 
-    public function edit(Person $person)
+    public function edit(Model $person)
     {
         return $this->form->actions('update')
             ->value('position', $person->position($this->company))
@@ -38,5 +38,10 @@ class PersonForm
         $this->company = $company;
 
         return $this;
+    }
+
+    protected function templatePath(): string
+    {
+        return self::TemplatePath;
     }
 }
