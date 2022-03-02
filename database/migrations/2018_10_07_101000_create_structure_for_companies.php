@@ -2,7 +2,7 @@
 
 use LaravelEnso\Migrator\Database\Migration;
 
-class CreateStructureForCompanies extends Migration
+return new class extends Migration
 {
     protected array $permissions = [
         ['name' => 'administration.companies.initTable', 'description' => 'Init table for companies', 'is_default' => false],
@@ -22,4 +22,4 @@ class CreateStructureForCompanies extends Migration
     ];
 
     protected ?string $parentMenu = 'Administration';
-}
+};

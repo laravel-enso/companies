@@ -2,7 +2,7 @@
 
 use LaravelEnso\Migrator\Database\Migration;
 
-class CreateStructureForCompanyPeople extends Migration
+return new class extends Migration
 {
     protected array $permissions = [
         ['name' => 'administration.companies.people.create', 'description' => 'Add person to company', 'is_default' => false],
@@ -12,4 +12,4 @@ class CreateStructureForCompanyPeople extends Migration
         ['name' => 'administration.companies.people.update', 'description' => 'Update edited company person', 'is_default' => false],
         ['name' => 'administration.companies.people.destroy', 'description' => 'Delete company person', 'is_default' => false],
     ];
-}
+};
