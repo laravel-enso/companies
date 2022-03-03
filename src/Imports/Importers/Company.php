@@ -4,12 +4,12 @@ namespace LaravelEnso\Companies\Imports\Importers;
 
 use LaravelEnso\Companies\Models\Company as Model;
 use LaravelEnso\DataImport\Contracts\Importable;
-use LaravelEnso\DataImport\Models\DataImport;
+use LaravelEnso\DataImport\Models\Import;
 use LaravelEnso\Helpers\Services\Obj;
 
 class Company implements Importable
 {
-    public function run(Obj $row, DataImport $import)
+    public function run(Obj $row, Import $import)
     {
         $this->import($row);
     }
