@@ -8,7 +8,7 @@ use Illuminate\Notifications\RoutesNotifications;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use LaravelEnso\Addresses\Traits\Addressable;
-use LaravelEnso\DynamicMethods\Traits\Abilities;
+use LaravelEnso\Companies\Enums\Status;
 use LaravelEnso\Helpers\Traits\AvoidsDeletionConflicts;
 use LaravelEnso\Helpers\Traits\CascadesMorphMap;
 use LaravelEnso\People\Models\Person;
@@ -19,12 +19,16 @@ use LaravelEnso\TrackWho\Traits\UpdatedBy;
 
 class Company extends Model
 {
-    use Abilities, Addressable, AvoidsDeletionConflicts, CascadesMorphMap, CreatedBy;
+    use Addressable, AvoidsDeletionConflicts, CascadesMorphMap, CreatedBy;
     use HasFactory, Rememberable, RoutesNotifications, TableCache, UpdatedBy;
 
     protected $guarded = ['id'];
 
-    protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];
+    protected $casts = [
+        'pays_vat' => 'boolean',
+        'is_tenant' => 'boolean',
+        'status' => Status::class,
+    ];
 
     protected $rememberableKeys = ['id', 'name', 'fiscal_code'];
 

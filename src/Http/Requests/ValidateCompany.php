@@ -5,7 +5,8 @@ namespace LaravelEnso\Companies\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use LaravelEnso\Companies\Enums\Statuses;
+use Illuminate\Validation\Rules\Enum;
+use LaravelEnso\Companies\Enums\Status;
 use LaravelEnso\Helpers\Traits\FiltersRequest;
 
 class ValidateCompany extends FormRequest
@@ -22,7 +23,7 @@ class ValidateCompany extends FormRequest
         return [
             'mandatary' => 'nullable|exists:people,id',
             'name' => ['required', 'string', $this->unique('name')],
-            'status' => 'required|numeric|in:'.Statuses::keys()->implode(','),
+            'status' => ['required', new Enum(Status::class),
             'fiscal_code' => ['string', 'nullable', $this->unique('fiscal_code')],
             'reg_com_nr' => ['string', 'nullable', $this->unique('reg_com_nr')],
             'email' => 'email|nullable',
