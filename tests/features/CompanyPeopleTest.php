@@ -21,7 +21,7 @@ class CompanyPeopleTest extends TestCase
 
         $this->company = Company::factory()->test()->create();
 
-        $this->testModel = Person::factory()->create();
+        $this->testModel = Person::factory()->test()->create();
     }
 
     /** @test */
