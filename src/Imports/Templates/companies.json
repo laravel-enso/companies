@@ -20,7 +20,7 @@
                 },
                 {
                     "name": "fiscal_code",
-                    "validations": "nullable|unique"
+                    "validations": "nullable|unique:companies,fiscal_code"
                 },
                 {
                     "name": "reg_com_nr",
