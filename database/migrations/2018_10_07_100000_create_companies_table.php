@@ -37,7 +37,6 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->unique('reg_com_nr');
             $table->unique('fiscal_code');
         });
     }
