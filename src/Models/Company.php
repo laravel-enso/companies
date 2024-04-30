@@ -8,6 +8,7 @@ use Illuminate\Notifications\RoutesNotifications;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use LaravelEnso\Addresses\Traits\Addressable;
+use LaravelEnso\DynamicMethods\Contracts\DynamicMethods;
 use LaravelEnso\DynamicMethods\Traits\Abilities;
 use LaravelEnso\Helpers\Traits\AvoidsDeletionConflicts;
 use LaravelEnso\Helpers\Traits\CascadesMorphMap;
@@ -17,7 +18,7 @@ use LaravelEnso\Tables\Traits\TableCache;
 use LaravelEnso\TrackWho\Traits\CreatedBy;
 use LaravelEnso\TrackWho\Traits\UpdatedBy;
 
-class Company extends Model
+class Company extends Model implements DynamicMethods
 {
     use Abilities, Addressable, AvoidsDeletionConflicts, CascadesMorphMap, CreatedBy;
     use HasFactory, Rememberable, RoutesNotifications, TableCache, UpdatedBy;
