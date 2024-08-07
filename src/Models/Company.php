@@ -25,8 +25,6 @@ class Company extends Model implements DynamicMethods
 
     protected $guarded = ['id'];
 
-    protected $casts = ['pays_vat' => 'boolean', 'is_tenant' => 'boolean'];
-
     protected $rememberableKeys = ['id', 'name', 'fiscal_code'];
 
     public function people()
@@ -76,5 +74,12 @@ class Company extends Model implements DynamicMethods
         )->toArray();
 
         $this->people()->sync($pivotIds);
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'pays_vat' => 'boolean', 'is_tenant' => 'boolean',
+        ];
     }
 }

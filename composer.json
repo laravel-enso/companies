@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "laravel-enso/core": "^9.0",
+        "laravel-enso/core": "^10.0",
         "laravel-enso/addresses": "^5.0",
         "laravel-enso/enums": "^2.0",
         "laravel-enso/dynamic-methods": "^3.0",
@@ -47,7 +47,7 @@
                 "LaravelEnso\\Companies\\SearchServiceProvider",
                 "LaravelEnso\\Companies\\EnumServiceProvider"
             ],
-            "aliases": {}
+            "aliases": []
         }
     }
 }
