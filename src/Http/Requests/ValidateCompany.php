@@ -34,6 +34,7 @@ class ValidateCompany extends FormRequest
             'notes' => 'string|nullable',
             'pays_vat' => 'required|boolean',
             'is_tenant' => 'required|boolean',
+            'is_public_institution' => 'required|boolean',
         ];
     }
 

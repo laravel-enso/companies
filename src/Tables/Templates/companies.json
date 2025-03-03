@@ -8,7 +8,8 @@
         "destroy"
     ],
     "countCache": true,
-    "columns": [{
+    "columns": [
+        {
             "label": "Name",
             "name": "name",
             "data": "companies.name",
@@ -86,6 +87,15 @@
             "label": "Tenant",
             "name": "is_tenant",
             "data": "companies.is_tenant",
+            "meta": [
+                "boolean",
+                "sortable"
+            ]
+        },
+        {
+            "label": "Public Institution",
+            "name": "is_public_institution",
+            "data": "companies.is_public_institution",
             "meta": [
                 "boolean",
                 "sortable"
