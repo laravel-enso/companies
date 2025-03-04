@@ -17,12 +17,7 @@ class IsPublicInstitution implements MigratesTable
     public function migrateTable(): void
     {
         Schema::table('companies', function (Blueprint $table) {
-            $table->boolean('is_public_institution')->default(false)
-                ->after('is_tenant');
-        });
-
-        Schema::table('companies', function (Blueprint $table) {
-            $table->boolean('is_public_institution')->default(null)->change();
+            $table->boolean('is_public_institution')->after('is_tenant');
         });
     }
 }

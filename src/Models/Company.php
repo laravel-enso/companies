@@ -80,6 +80,7 @@ class Company extends Model implements DynamicMethods
     {
         return [
             'pays_vat' => 'boolean', 'is_tenant' => 'boolean',
+            'is_public_institution' => 'boolean',
         ];
     }
 }
