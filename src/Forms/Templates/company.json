@@ -136,6 +136,15 @@
                         "type": "input",
                         "content": "checkbox"
                     }
+                },
+                {
+                    "label": "Is Public Institution",
+                    "name": "is_public_institution",
+                    "value": false,
+                    "meta": {
+                        "type": "input",
+                        "content": "checkbox"
+                    }
                 }
             ]
         },
