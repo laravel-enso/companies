@@ -26,6 +26,7 @@ class CompanyFactory extends Factory
             'notes' => null,
             'pays_vat' => true,
             'is_tenant' => false,
+            'is_public_institution' => false,
             'status' => Statuses::Active,
         ];
     }
@@ -44,6 +45,7 @@ class CompanyFactory extends Factory
             'notes' => $this->faker->sentence,
             'pays_vat' => $this->faker->boolean,
             'is_tenant' => $this->faker->boolean,
+            'is_public_institution' => $this->faker->boolean,
             'status' => Statuses::keys()->random(),
         ]);
     }
