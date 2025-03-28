@@ -117,7 +117,7 @@
             ]
         },
         {
-            "columns": 3,
+            "columns": 2,
             "fields": [
                 {
                     "label": "Pays VAT",
