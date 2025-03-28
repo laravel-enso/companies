@@ -7,17 +7,17 @@ use Illuminate\Support\Facades\Schema;
 use LaravelEnso\Upgrade\Contracts\MigratesTable;
 use LaravelEnso\Upgrade\Helpers\Table;
 
-class IsPublicInstitution implements MigratesTable
+class RemoveIsTenant implements MigratesTable
 {
     public function isMigrated(): bool
     {
-        return Table::hasColumn('companies', 'is_public_institution');
+        return ! Table::hasColumn('companies', 'is_tenant');
     }
 
     public function migrateTable(): void
     {
         Schema::table('companies', function (Blueprint $table) {
-            $table->boolean('is_public_institution')->after('status');
+            $table->dropColumn('is_tenant');
         });
     }
 }

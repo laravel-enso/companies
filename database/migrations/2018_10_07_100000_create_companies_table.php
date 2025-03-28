@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
@@ -27,7 +26,6 @@ return new class extends Migration
 
             $table->boolean('pays_vat')->nullable();
             $table->tinyInteger('status');
-            $table->boolean('is_tenant')->nullable();
             $table->boolean('is_public_institution');
 
             $table->integer('created_by')->unsigned()->index()->nullable();
