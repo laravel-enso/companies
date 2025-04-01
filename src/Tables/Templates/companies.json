@@ -84,15 +84,6 @@
             "enum": "LaravelEnso\\Companies\\Enums\\Statuses"
         },
         {
-            "label": "Tenant",
-            "name": "is_tenant",
-            "data": "companies.is_tenant",
-            "meta": [
-                "boolean",
-                "sortable"
-            ]
-        },
-        {
             "label": "Public Institution",
             "name": "is_public_institution",
             "data": "companies.is_public_institution",

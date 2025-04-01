@@ -38,11 +38,6 @@ class Company extends Model implements DynamicMethods
         return static::cacheGet(Config::get('enso.config.ownerCompanyId'));
     }
 
-    public function isTenant()
-    {
-        return $this->is_tenant;
-    }
-
     public function scopeTenant($query)
     {
         $query->whereIsTenant(true);
@@ -79,7 +74,7 @@ class Company extends Model implements DynamicMethods
     protected function casts(): array
     {
         return [
-            'pays_vat' => 'boolean', 'is_tenant' => 'boolean',
+            'pays_vat' => 'boolean',
             'is_public_institution' => 'boolean',
         ];
     }

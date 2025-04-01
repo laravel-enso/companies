@@ -117,20 +117,11 @@
             ]
         },
         {
-            "columns": 3,
+            "columns": 2,
             "fields": [
                 {
                     "label": "Pays VAT",
                     "name": "pays_vat",
-                    "value": false,
-                    "meta": {
-                        "type": "input",
-                        "content": "checkbox"
-                    }
-                },
-                {
-                    "label": "Is Tenant",
-                    "name": "is_tenant",
                     "value": false,
                     "meta": {
                         "type": "input",

@@ -27,7 +27,6 @@ return new class extends Migration
 
             $table->boolean('pays_vat')->nullable();
             $table->tinyInteger('status');
-            $table->boolean('is_tenant')->nullable();
             $table->boolean('is_public_institution');
 
             $table->integer('created_by')->unsigned()->index()->nullable();
