@@ -34,7 +34,7 @@
                     "value": null,
                     "meta": {
                         "type": "select",
-                        "options": "LaravelEnso\\Companies\\Enums\\Statuses"
+                        "options": "LaravelEnso\\Companies\\Enums\\Status"
                     }
                 },
                 {
