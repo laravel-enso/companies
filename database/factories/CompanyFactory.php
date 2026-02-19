@@ -4,7 +4,7 @@ namespace LaravelEnso\Companies\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use LaravelEnso\Companies\Enums\Statuses;
+use LaravelEnso\Companies\Enums\Status;
 use LaravelEnso\Companies\Models\Company;
 
 class CompanyFactory extends Factory
@@ -26,7 +26,7 @@ class CompanyFactory extends Factory
             'notes' => null,
             'pays_vat' => true,
             'is_public_institution' => false,
-            'status' => Statuses::Active,
+            'status' => Status::Active->value,
         ];
     }
 
@@ -44,7 +44,7 @@ class CompanyFactory extends Factory
             'notes' => $this->faker->sentence,
             'pays_vat' => $this->faker->boolean,
             'is_public_institution' => $this->faker->boolean,
-            'status' => Statuses::keys()->random(),
+            'status' => Status::values()->random(),
         ]);
     }
 }
