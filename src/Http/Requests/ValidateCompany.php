@@ -57,6 +57,10 @@ class ValidateCompany extends FormRequest
 
     protected function mandataryIsNotAssociated()
     {
+        if (! $this->route('company')) {
+            return;
+        }
+
         return ! $this->route('company')->people()
             ->pluck('id')->contains($this->get('mandatary'));
     }
