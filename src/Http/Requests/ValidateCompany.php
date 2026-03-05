@@ -25,7 +25,7 @@ class ValidateCompany extends FormRequest
         return [
             'mandatary' => 'nullable|exists:people,id',
             'name' => ['required', 'string', $this->unique('name')],
-            'status' => 'required|numeric|in:'.Statuses::keys()->implode(','),
+            'status' => 'required|numeric|in:' . Statuses::keys()->implode(','),
             'fiscal_code' => ['string', 'nullable', $this->unique('fiscal_code')],
             'reg_com_nr' => ['string', 'nullable', $this->unique('reg_com_nr')],
             'email' => ['nullable', $email],
@@ -57,7 +57,11 @@ class ValidateCompany extends FormRequest
 
     protected function mandataryIsNotAssociated()
     {
-        return ! $this->route('company')->people()
+        if (!$this->route('company')) {
+            return;
+        }
+
+        return !$this->route('company')->people()
             ->pluck('id')->contains($this->get('mandatary'));
     }
 
