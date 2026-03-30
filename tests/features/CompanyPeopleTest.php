@@ -5,6 +5,7 @@ use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\People\Models\Person;
 use LaravelEnso\Users\Models\User;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class CompanyPeopleTest extends TestCase
 {
@@ -24,7 +25,7 @@ class CompanyPeopleTest extends TestCase
         $this->testModel = Person::factory()->test()->create();
     }
 
-    /** @test */
+    #[Test]
     public function can_view_create_form()
     {
         $this->get(route('administration.companies.people.create', [$this->company->id], false))
@@ -32,7 +33,7 @@ class CompanyPeopleTest extends TestCase
             ->assertJsonStructure(['form']);
     }
 
-    /** @test */
+    #[Test]
     public function can_view_edit_form()
     {
         $this->setCompany();
@@ -45,7 +46,7 @@ class CompanyPeopleTest extends TestCase
             ->assertJsonStructure(['form']);
     }
 
-    /** @test */
+    #[Test]
     public function can_associate_person()
     {
         $this->testModel->company_id = $this->company->id;
@@ -61,7 +62,7 @@ class CompanyPeopleTest extends TestCase
         $this->assertTrue($this->testModel->fresh()->companies()->first()->id === $this->company->id);
     }
 
-    /** @test */
+    #[Test]
     public function can_update_person()
     {
         $this->setCompany();
@@ -76,7 +77,7 @@ class CompanyPeopleTest extends TestCase
         $this->assertEquals('updated', $this->testModel->fresh()->companies()->first()->pivot->position);
     }
 
-    /** @test */
+    #[Test]
     public function can_get_option_list()
     {
         $this->setCompany();
@@ -88,7 +89,7 @@ class CompanyPeopleTest extends TestCase
             ->assertJsonFragment(['id' => $this->testModel->id]);
     }
 
-    /** @test */
+    #[Test]
     public function can_dissociate_person()
     {
         $this->setCompany();
