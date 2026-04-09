@@ -7,6 +7,7 @@ use LaravelEnso\Forms\TestTraits\EditForm;
 use LaravelEnso\Tables\Traits\Tests\Datatable;
 use LaravelEnso\Users\Models\User;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class CompanyTest extends TestCase
 {
@@ -25,7 +26,7 @@ class CompanyTest extends TestCase
         $this->testModel = Company::factory()->test()->make();
     }
 
-    /** @test */
+    #[Test]
     public function can_view_create_form()
     {
         $this->get(route($this->permissionGroup.'.create', false))
@@ -33,7 +34,7 @@ class CompanyTest extends TestCase
             ->assertJsonStructure(['form']);
     }
 
-    /** @test */
+    #[Test]
     public function can_store_company()
     {
         $response = $this->post(
@@ -52,7 +53,7 @@ class CompanyTest extends TestCase
             ]);
     }
 
-    /** @test */
+    #[Test]
     public function can_update_company()
     {
         $this->testModel->save();
@@ -70,7 +71,7 @@ class CompanyTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function get_option_list()
     {
         $this->testModel->save();
