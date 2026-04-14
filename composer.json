@@ -29,7 +29,7 @@
         "laravel-enso/people": "^4.7",
         "laravel-enso/rememberable": "^4.0",
         "laravel-enso/searchable": "^2.2",
-        "laravel-enso/track-who": "^2.0",
+        "laravel-enso/track-who": "^3.0",
         "laravel-enso/tables": "^5.1"
     },
     "autoload": {
