@@ -81,7 +81,7 @@
                 "sortable",
                 "slot"
             ],
-            "enum": "LaravelEnso\\Companies\\Enums\\Statuses"
+            "enum": "LaravelEnso\\Companies\\Enums\\Status"
         },
         {
             "label": "Public Institution",
