@@ -6,12 +6,15 @@ use LaravelEnso\Forms\TestTraits\DestroyForm;
 use LaravelEnso\Forms\TestTraits\EditForm;
 use LaravelEnso\Tables\Traits\Tests\Datatable;
 use LaravelEnso\Users\Models\User;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
+use Tests\TestCase;
 
 class CompanyTest extends TestCase
 {
-    use Datatable, DestroyForm, EditForm, RefreshDatabase;
+    use Datatable;
+    use DestroyForm;
+    use EditForm;
+    use RefreshDatabase;
 
     private $permissionGroup = 'administration.companies';
     private $testModel;
@@ -49,7 +52,7 @@ class CompanyTest extends TestCase
             ->assertJsonStructure(['message'])
             ->assertJsonFragment([
                 'redirect' => 'administration.companies.edit',
-                'param' => ['company' => $company->id],
+                'param'    => ['company' => $company->id],
             ]);
     }
 

@@ -20,9 +20,9 @@ class Store extends Controller
         $company->save();
 
         return [
-            'message' => __('The company was successfully created'),
+            'message'  => __('The company was successfully created'),
             'redirect' => 'administration.companies.edit',
-            'param' => ['company' => $company->id],
+            'param'    => ['company' => $company->id],
         ];
     }
 }

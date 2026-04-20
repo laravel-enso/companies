@@ -17,7 +17,7 @@ class Destroy extends Controller
         $company->delete();
 
         return [
-            'message' => __('The company was successfully deleted'),
+            'message'  => __('The company was successfully deleted'),
             'redirect' => 'administration.companies.index',
         ];
     }

@@ -9,9 +9,9 @@ class SearchServiceProvider extends ServiceProvider
 {
     public $register = [
         Company::class => [
-            'group' => 'Company',
-            'attributes' => ['name'],
-            'label' => 'name',
+            'group'           => 'Company',
+            'attributes'      => ['name'],
+            'label'           => 'name',
             'permissionGroup' => 'administration.companies',
         ],
     ];

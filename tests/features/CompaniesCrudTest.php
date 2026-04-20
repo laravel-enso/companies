@@ -11,7 +11,10 @@ use Tests\TestCase;
 
 class CompaniesCrudTest extends TestCase
 {
-    use Datatable, DestroyForm, EditForm, RefreshDatabase;
+    use Datatable;
+    use DestroyForm;
+    use EditForm;
+    use RefreshDatabase;
 
     private string $permissionGroup = 'administration.companies';
     private Company $testModel;
@@ -48,7 +51,7 @@ class CompaniesCrudTest extends TestCase
             ->assertJsonStructure(['message'])
             ->assertJsonFragment([
                 'redirect' => 'administration.companies.edit',
-                'param' => ['company' => $company->id],
+                'param'    => ['company' => $company->id],
             ]);
     }
 

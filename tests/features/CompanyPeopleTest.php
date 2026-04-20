@@ -4,8 +4,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use LaravelEnso\Companies\Models\Company;
 use LaravelEnso\People\Models\Person;
 use LaravelEnso\Users\Models\User;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
+use Tests\TestCase;
 
 class CompanyPeopleTest extends TestCase
 {
@@ -53,7 +53,7 @@ class CompanyPeopleTest extends TestCase
 
         $response = $this->post(route('administration.companies.people.store', [], false), [
             'company_id' => $this->company->id,
-            'id' => $this->testModel->id,
+            'id'         => $this->testModel->id,
         ]);
 
         $response->assertStatus(200)
@@ -69,8 +69,8 @@ class CompanyPeopleTest extends TestCase
 
         $this->patch(route('administration.companies.people.update', [$this->testModel->id], false), [
             'company_id' => $this->company->id,
-            'id' => $this->testModel->id,
-            'position' => 'updated',
+            'id'         => $this->testModel->id,
+            'position'   => 'updated',
         ])->assertStatus(200)
             ->assertJsonStructure(['message']);
 
@@ -107,7 +107,7 @@ class CompanyPeopleTest extends TestCase
     public function setCompany()
     {
         $this->testModel->companies()->attach($this->company->id, [
-            'is_main' => false,
+            'is_main'      => false,
             'is_mandatary' => false,
         ]);
     }

@@ -20,8 +20,16 @@ use LaravelEnso\TrackWho\Traits\UpdatedBy;
 
 class Company extends Model implements DynamicMethods
 {
-    use Abilities, Addressable, AvoidsDeletionConflicts, CascadesMorphMap, CreatedBy;
-    use HasFactory, Rememberable, RoutesNotifications, TableCache, UpdatedBy;
+    use Abilities;
+    use Addressable;
+    use AvoidsDeletionConflicts;
+    use CascadesMorphMap;
+    use CreatedBy;
+    use HasFactory;
+    use Rememberable;
+    use RoutesNotifications;
+    use TableCache;
+    use UpdatedBy;
 
     protected $guarded = ['id'];
 
@@ -54,9 +62,9 @@ class Company extends Model implements DynamicMethods
     public function attachPerson(int $personId, ?string $position = null)
     {
         $this->people()->attach($personId, [
-            'is_main' => false,
+            'is_main'      => false,
             'is_mandatary' => false,
-            'position' => $position,
+            'position'     => $position,
         ]);
     }
 
@@ -74,7 +82,7 @@ class Company extends Model implements DynamicMethods
     protected function casts(): array
     {
         return [
-            'pays_vat' => 'boolean',
+            'pays_vat'              => 'boolean',
             'is_public_institution' => 'boolean',
         ];
     }

@@ -11,7 +11,7 @@ class RemoveIsTenant implements MigratesTable
 {
     public function isMigrated(): bool
     {
-        return ! Table::hasColumn('companies', 'is_tenant');
+        return !Table::hasColumn('companies', 'is_tenant');
     }
 
     public function migrateTable(): void

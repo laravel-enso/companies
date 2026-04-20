@@ -2,8 +2,7 @@
 
 use LaravelEnso\Migrator\Database\Migration;
 
-return new class extends Migration
-{
+return new class() extends Migration {
     protected array $permissions = [
         ['name' => 'administration.companies.initTable', 'description' => 'Init table for companies', 'is_default' => false],
         ['name' => 'administration.companies.tableData', 'description' => 'Get table data for companies', 'is_default' => false],

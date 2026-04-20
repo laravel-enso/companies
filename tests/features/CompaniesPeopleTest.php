@@ -54,7 +54,7 @@ class CompaniesPeopleTest extends TestCase
         $this->get(route('administration.companies.people.index', [$this->company->id], false))
             ->assertStatus(200)
             ->assertJsonFragment([
-                'id' => $this->testModel->id,
+                'id'       => $this->testModel->id,
                 'position' => 'Administrator',
             ]);
     }
@@ -64,7 +64,7 @@ class CompaniesPeopleTest extends TestCase
     {
         $response = $this->post(route('administration.companies.people.store', [], false), [
             'company_id' => $this->company->id,
-            'id' => $this->testModel->id,
+            'id'         => $this->testModel->id,
         ]);
 
         $response->assertStatus(200)
@@ -80,7 +80,7 @@ class CompaniesPeopleTest extends TestCase
 
         $this->post(route('administration.companies.people.store', [], false), [
             'company_id' => $this->company->id,
-            'id' => $this->testModel->id,
+            'id'         => $this->testModel->id,
         ])->assertStatus(302)
             ->assertSessionHasErrors(['id']);
     }
@@ -92,8 +92,8 @@ class CompaniesPeopleTest extends TestCase
 
         $this->patch(route('administration.companies.people.update', [$this->testModel->id], false), [
             'company_id' => $this->company->id,
-            'id' => $this->testModel->id,
-            'position' => 'updated',
+            'id'         => $this->testModel->id,
+            'position'   => 'updated',
         ])->assertStatus(200)
             ->assertJsonStructure(['message']);
 
@@ -163,9 +163,9 @@ class CompaniesPeopleTest extends TestCase
     private function associatePerson(?string $position = null): void
     {
         $this->testModel->companies()->attach($this->company->id, [
-            'is_main' => false,
+            'is_main'      => false,
             'is_mandatary' => false,
-            'position' => $position,
+            'position'     => $position,
         ]);
     }
 }

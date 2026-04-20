@@ -15,8 +15,8 @@ class ValidatePersonUpdate extends FormRequest
     {
         return [
             'company_id' => 'required|exists:companies,id',
-            'id' => 'required|exists:people,id',
-            'position' => 'string|nullable',
+            'id'         => 'required|exists:people,id',
+            'position'   => 'string|nullable',
         ];
     }
 }

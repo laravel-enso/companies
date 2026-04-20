@@ -73,13 +73,13 @@ class CompaniesModelProvidersTest extends TestCase
 
         $this->assertTrue($company->fresh()->mandatary()->is($firstPerson));
         $this->assertDatabaseHas('company_person', [
-            'company_id' => $company->id,
-            'person_id' => $firstPerson->id,
+            'company_id'   => $company->id,
+            'person_id'    => $firstPerson->id,
             'is_mandatary' => true,
         ]);
         $this->assertDatabaseHas('company_person', [
-            'company_id' => $company->id,
-            'person_id' => $secondPerson->id,
+            'company_id'   => $company->id,
+            'person_id'    => $secondPerson->id,
             'is_mandatary' => false,
         ]);
 
@@ -87,13 +87,13 @@ class CompaniesModelProvidersTest extends TestCase
 
         $this->assertTrue($company->fresh()->mandatary()->is($secondPerson));
         $this->assertDatabaseHas('company_person', [
-            'company_id' => $company->id,
-            'person_id' => $firstPerson->id,
+            'company_id'   => $company->id,
+            'person_id'    => $firstPerson->id,
             'is_mandatary' => false,
         ]);
         $this->assertDatabaseHas('company_person', [
-            'company_id' => $company->id,
-            'person_id' => $secondPerson->id,
+            'company_id'   => $company->id,
+            'person_id'    => $secondPerson->id,
             'is_mandatary' => true,
         ]);
     }
