@@ -2,7 +2,7 @@
 
 namespace LaravelEnso\Companies\Forms\Builders;
 
-use LaravelEnso\Companies\Enums\Statuses;
+use LaravelEnso\Companies\Enums\Status;
 use LaravelEnso\Companies\Models\Company as Model;
 use LaravelEnso\Forms\Services\Form;
 
@@ -20,7 +20,7 @@ class Company
     public function create()
     {
         return $this->form->readonly('mandatary')
-            ->value('status', Statuses::Active)
+            ->value('status', Status::Active->value)
             ->meta('mandatary', 'custom', false)
             ->meta('mandatary', 'placeholder', 'N/A')
             ->create();
