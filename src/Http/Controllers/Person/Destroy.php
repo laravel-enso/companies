@@ -17,7 +17,7 @@ class Destroy extends Controller
         $this->authorize('manage-people', $company);
 
         $isMandatary = $company->mandatary()?->id === $person->id
-            && $company->people()->exists();
+            && $company->people()->whereKeyNot($person->id)->exists();
 
         if ($isMandatary) {
             throw Exception::dissociateMandatary();
