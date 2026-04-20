@@ -1,6 +1,6 @@
 {
     "name": "laravel-enso/companies",
-    "description": "Person management dependency for Laravel Enso",
+    "description": "Company management dependency for Laravel Enso",
     "keywords": [
         "laravel",
         "laravel-enso",
